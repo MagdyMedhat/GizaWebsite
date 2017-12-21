@@ -1,0 +1,76 @@
+﻿@{
+    Layout = "~/Views/_layout.cshtml";
+    @inherits System.Web.Mvc.WebViewPage
+}
+
+
+<!---------------------------------------------------------------------------------------->
+<script src="~/Components/Employee/EmployeeController.js"></script>
+
+
+<!---------------------------------------------------------------------------------------->
+<section id="aboutproj" class="jumbotron  short well-back" >
+    <div class="container">
+        <h3> الموظفين </h3>
+    </div>
+</section>
+
+<section class="container no-padding pagestart" data-ng-controller="EmployeeController">
+    <input type="hidden" value="index" id="token" />
+    <div class="row" ng-show="model.showMessage">
+        <div class="col-md-12">
+            <div class="alert alert-success">
+                <label id="msg">تم الحذف بنجاح</label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="container-fluid">
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-primary" style="float: right; margin-bottom: 10px; margin-right: -1.5%;" href ng-click="Create()"><span class="fa fa-plus"></span>&ensp;إضافة موظف</a>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-primary" style="float: left; margin-bottom: 10px; margin-right: 10px" href ng-click="SearchEmployee()">بحث <span class="glyphicon glyphicon-search" style="margin-right: 10px"></span></a>
+                    <input type="text" id="search_field" style="float: left; width: 25%; margin-bottom: 10px;" class="form-control" ng-model="model.searchKeyword">
+                </div>
+                </br>
+                                <table id="example1" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>رقم الملف</th>
+                                            <th>اسم الموظف</th>
+                                            <th>الرقم القومي</th>
+                                            <th>الادارة</th>
+                                            <th>تاريخ التعيين</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="item in model.employees">
+                                            <td>{{item.fileNumber}}</td>
+                                            <td>{{item.name}}</td>
+                                            <td>{{item.nationalID}}</td>
+                                            <td>{{item.department}}</td>
+                                            <td>{{model.dateFixer(item.hireDate)}}</td>
+                                            <td>
+                                                <button style="float: left; margin-right: 2px; margin-left: 2px;" class="btn btn-info" ng-click="Open(item.id)"><span class="fa fa-folder-open-o"></span></button>
+                                                <button style="float: left; margin-right: 2px; margin-left: 2px;" class="btn btn-info" ng-click="Update(item.id)"><span class="fa fa-pencil-square"></span></button>
+                                                <button style="float: left; margin-right: 2px; margin-left: 2px;" class="btn btn-info" ng-click="DeleteEmployee(item.id)"><span class="fa fa-times"></span></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                <div align="center">
+                    <pagination total-items="model.tableTotalCount" ng-model="model.tableCurrentPage" rotate="false" boundary-links="true" max-size="10" items-per-page="10" ng-change="SearchEmployee()"></pagination>
+                </div>
+            </div>
+
+
+
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+<!-- /.content -->

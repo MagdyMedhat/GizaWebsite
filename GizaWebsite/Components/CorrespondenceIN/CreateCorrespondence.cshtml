@@ -1,0 +1,252 @@
+﻿@{
+    Layout = "~/Views/_layout.cshtml";
+    @inherits System.Web.Mvc.WebViewPage
+}
+
+<script src="~/Components/CorrespondenceIN/CorrespondenceINController.js"></script>
+<style>
+    #pdf {
+        width: 900px;
+        height: 500px;
+        margin: 2em auto;
+    }
+
+        #pdf p {
+            padding: 1em;
+        }
+
+        #pdf object {
+            display: block;
+        }
+</style>
+
+
+<section id="aboutproj" class="jumbotron  short well-back" >
+    <div class="container">
+        <h3> المكاتبات الواردة - إنشاء </h3>
+    </div>
+</section>
+
+<section class="container no-padding" ng-controller="CorrespondenceINController">
+    <input type="hidden" value="create" id="token" />
+
+    <div class="row" ng-show="model.showMessage">
+        <div class="col-md-12">
+            <div class="alert alert-success">
+                <label id="msg">تم الحفظ بنجاح</label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <form name="create_form" id="create_form">
+                <div class="panel panel-default">
+                    <div class="panel-body form-horizontal ">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="description" class="col-sm-4 control-label">رقم المكاتبة</label>
+                                <div class="col-sm-8">
+                                    <input required  title="من فضلك ادخل هذا الحقل" type="text" class="form-control" id="c_number" name="c_number" ng-model="model.correspondence.CORRESPONDENCE_NO">
+                                </div>
+                            </div>
+                             <div class="form-group">
+                                <label for="description" class="col-sm-4 control-label">ربط المكاتبة</label>
+                                <div class="col-sm-8">
+                                    <input  type="text" class="form-control" id="related_c" name="related_c" ng-model="model.correspondence.RELATED_CORRESPONDENCE_ID">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="amount" class="col-sm-4 control-label">تاريخ ورود المكاتبة</label>
+                                <div class="col-sm-8">
+                                    <input type="date" class="form-control" ng-model="model.correspondence.INCOMING_DATE" id="date" name="date">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="concept" class="col-sm-4 control-label">موضوع المكاتبة</label>
+                                <div class="col-sm-8">
+                                    <input  type="text" class="form-control" id="topic" name="topic" ng-model="model.correspondence.TOPIC">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="concept" class="col-sm-4 control-label">الجهة الوارد منها</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="sending_entity" name="sending_entity"  ng-model="model.correspondence.SENDING_ENTITY_NAME"/>
+                                </div>
+                            </div>
+                           <div class="form-group">
+                                <label for="status" class="col-sm-4 control-label">تصنيف جهة الوارد</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="sending_entity_type" name="sending_entity_type" ng-model="model.correspondence.SENDING_ENTITY_TYPE_ID">
+                                        <option ng-repeat="item in model.comboBoxData.sendingEntityType" value="{{item.id}}" >{{item.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="description" class="col-sm-4 control-label">رقم تصدير المكاتبة للمكتب</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="to_office_number" name="to_office_number"  ng-model="model.correspondence.TO_OFFICE_RECEIPT_NUMBER"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="date" class="col-sm-4 control-label">تاريخ تصدير المكاتبة للمكتب</label>
+                                <div class="col-sm-8">
+                                    <input type="date" class="form-control" ng-model="model.correspondence.TO_OFFICE_RECEIPT_DATE" id="date" name="date">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="status" class="col-sm-4 control-label">نوع المكاتبة الواردة</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="inbound_doc_type" name="inbound_doc_type"  ng-model="model.correspondence.INBOUND_DOC_TYPE_ID">
+                                        <option ng-repeat="item in model.comboBoxData.documentType" value="{{item.id}}">{{item.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="amount" class="col-sm-4 control-label">عدد المرفقات الواردة</label>
+                                <div class="col-sm-8">
+                                    <input  type="number"   min="0"  class="form-control" id="no_of_attachments" name="no_of_attachments" ng-model="model.correspondence.NO_OF_ATTACHMENTS"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="concept" class="col-sm-4 control-label">الجهة الاصلية للمكاتبة</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="main_entity" name="main_entity"  ng-model="model.correspondence.MAIN_ENTITY_NAME"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="description" class="col-sm-4 control-label">اسم الشاكي</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="complaint_owner" name="complaint_owner"  ng-model="model.correspondence.COMPLAINT_OWNER_NAME"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">تليفون الشاكي</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="complaint_owner_phone" name="complaint_owner_phone" ng-model="model.correspondence.COMPLAINT_OWNER_PHONE"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="amount" class="col-sm-4 control-label">عنوان الشاكي</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="complaint_owner_address" name="complaint_owner_address" ng-model="model.correspondence.COMPLAINT_OWNER_ADDRESS"/>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="status" class="col-sm-4 control-label">تصنيف المكاتبة</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="Type" name="Type"  ng-model="model.correspondence.TOPIC_TYPE_ID">
+                                        <option ng-repeat="item in model.comboBoxData.topicType" value="{{item.id}}" >{{item.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group" >
+                                <label for="amount" class="col-sm-4 control-label">صورة ضوئية</label>
+                                <div class="col-sm-8">
+                                    <input ngf-select ng-model="model.files" ngf-multiple="true" id="files" name="files" type="file" />
+                                    <ul>
+                                        <li ng-repeat="f in model.files">{{f.name}}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="amount" class="col-sm-4 control-label">نوع المكاتبة</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="c_type" name="c_type"  ng-model="model.correspondence.C_TYPE_ID">
+                                        <option ng-repeat="item in model.comboBoxData.correspondenceType" value="{{item.id}}" >{{item.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="amount" class="col-sm-4 control-label">جهة الرصد</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="adding_entity" name="adding_entity" ng-model="model.correspondence.ADDING_ENTITY_TYPE_ID">
+                                        <option ng-repeat="item in model.comboBoxData.addingEntity" value="{{item.id}}" >{{item.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="amount" class="col-sm-4 control-label">درجة الأهمية</label>
+                                <div class="col-sm-8">
+                                    <select  class="form-control" id="importance" name="importance" ng-model="model.correspondence.IMPORTANCE_ID">
+                                        <option ng-repeat="item in model.comboBoxData.importance" value="{{item.id}}" >{{item.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="amount" class="col-sm-4 control-label">حالة المكاتبة</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="status" name="status"  ng-model="model.correspondence.STATUS_ID">
+                                        <option ng-repeat="item in model.comboBoxData.status" value="{{item.id}}">{{item.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="amount" class="col-sm-4 control-label">رقم المجلد</label>
+                                <div class="col-sm-8">
+                                    <input  type="number"   min="0"  class="form-control" id="folder_number" name="folder_number"  ng-model="model.correspondence.FOLDER_NUMBER"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="amount" class="col-sm-4 control-label">إسم المجلد</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="folder_name" name="folder_name" ng-model="model.correspondence.FOLDER_NAME"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="amount" class="col-sm-4 control-label">نوع النسخة المحفوظة</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="stored_copy_type" name="stored_copy_type" ng-model="model.correspondence.SAVED_DOCUMENT_TYPE_ID">
+                                        <option ng-repeat="item in model.comboBoxData.savedDocumentType" value="{{item.id}}"  >{{item.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="amount" class="col-sm-4 control-label">دولاب الحفظ</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="stored_copy_type" name="stored_copy_type" ng-model="model.correspondence.CLOSET_ID">
+                                        <option ng-repeat="item in model.comboBoxData.closets" value="{{item.id}}"  >{{item.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="amount" class="col-sm-4 control-label">رف الحفظ</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="stored_copy_type" name="stored_copy_type" ng-model="model.correspondence.SHELF_ID">
+                                        <option ng-repeat="item in model.comboBoxData.shelves" value="{{item.id}}"  >{{item.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="amount" class="col-sm-4 control-label">ملاحظات أخرى عن المكاتبة</label>
+                                <div class="col-sm-8">
+                                    <input  type="text"   class="form-control" id="notes" name="notes" ng-model="model.correspondence.NOTES"/>
+                                </div>
+                            </div>
+
+                        </div>
+                        <hr />
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <hr class="wide" />
+                                <button type="submit" class="btn btn-primary center  preview-add-button" ng-click="create_form.$valid &&  CreateCorrespondence()">
+                                    <span class="glyphicon glyphicon-plus"></span>حفظ
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- / panel preview -->
+            </form>
+
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+<!-- /.content --> 

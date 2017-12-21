@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+    <!--------------------------------- CSS FILES -------------------------------------->
+    <link href="~/Assets/Bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Assets/fonts/DroidKufi/droid-arabic-kufi.css" rel="stylesheet" />
+    <link href="~/Assets/CSS/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Assets/CSS/creative-rtl.css" rel="stylesheet" />
+    <link href="~/Assets/CSS/bootstrap-rtl.min.css" rel="stylesheet" />
+    <link href="~/Assets/datatables/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="~/Assets/Tags/ng-tags-input.css" rel="stylesheet" />
+    <link href="~/Assets/AngularJS/Plugins/wig/ng-wig.css" rel="stylesheet" />
+    <!--------------------------------------------------------------------------------->
+
+    <!--------------------------------- JS FILES -------------------------------------->
+    <script src="~/Assets/jQuery/jquery-1.11.3.min.js"></script>
+    <script src="~/Assets/Bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Assets/AngularJS/angular.min.js"></script>
+    <script src="~/Assets/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Assets/datatables/dataTables.bootstrap.min.js"></script>
+    <script src="~/Assets/Tags/ng-tags-input.js"></script>
+    <script src="~/Assets/AngularJS/Plugins/wig/ng-wig.js"></script>
+    <script src="~/Assets/AngularJS/Plugins/ng-file-upload/ng-file-upload-shim.min.js"></script>
+    <script src="~/Assets/AngularJS/Plugins/ng-file-upload/ng-file-upload.min.js"></script>
+    <script src="~/Assets/AngularJS/Plugins/ui.bootstrap/ui-bootstrap-tpls-0.12.0.min.js"></script>
+    <script src="~/Assets/PDFObject/pdfobject.js"></script>
+    <!--------------------------------------------------------------------------------->
+
+    <!--------------------------------- AngularJS Init -------------------------------->
+    <script src="~/Components/Common/app.js"></script>
+    <script src="~/Components/Common/LayoutController.js"></script>
+    <script src="~/Components/Common/ComboBoxHandler.js"></script>
+    <!--------------------------------------------------------------------------------->
+
+
+    <style>
+        .navbar-fixed-top {
+            background-color: #031838 !important;
+        }
+
+        .nav-font {
+            font-family: 'DroidArabicKufiRegular', 'Open Sans','Helvetica Neue',Arial,sans-serif !important;
+            color: white !important;
+        }
+
+        .body {
+            direction: rtl !important;
+        }
+
+        * {
+            border-radius: 0 !important;
+        }
+
+        .pagestart {
+            margin-top: 7%;
+        }
+
+        .jumbotron {
+            margin-top: 16px;
+        }
+    </style>
+
+
+    <title>Giza Website </title>
+</head>
+<body ng-app="App" class="theme-default main-menu-animated" ng-controller="LayoutController">
+
+    <!-- Fixed navbar -->
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top" style="direction: rtl">
+        <div class="container" style="direction: rtl">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+                <img style="float: right" src="/Assets/Images/logo.png" width="50" height="50" /><a class="navbar-brand page-scroll nav-font" href ng-click="LogoClick()" style="float: right;margin-left:30px">محافظة الجيزة</a>
+
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li class="dropdown" ng-show="{{model.isLogged}}">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa fa-pencil"></span>&ensp; المكاتبات <span class="caret"></span>
+                            <ul class="dropdown-menu">
+                                <li><a href ng-click="CorrespondenceINClick()"><span class="fa fa-download"></span>&ensp;  المكاتبات الواردة </a></li>
+                                <li><a href ng-click="CorrespondenceOUTClick()"><span class="fa fa-upload"></span>&ensp;  المكاتبات الصادرة  </a></li>
+                            </ul></li>
+
+                    <li ng-show="{{model.isLogged}}">
+                        <a class="page-scroll nav-font" href ng-click="StatsClick()"><span class="fa fa-bar-chart"></span>&ensp;  احصائيات النظام</a>
+                    </li>
+
+                    <li>
+                        <a class="page-scroll nav-font" ng-show="{{model.isLogged}}" href ng-click="EmployeeClick()"><span class="fa fa-users"></span>&ensp;الموظفين </a>
+                    </li>
+
+
+                    <li class="dropdown" ng-show="{{model.isAdmin}}">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span class="fa fa-gears"></span>&ensp; الأعدادات <span class="caret"></span>
+                            <ul class="dropdown-menu">
+                                <li><a href ng-click="TagsClick()"><span class="fa fa-object-group"></span>&ensp; تعديل الخيارات </a></li>
+                                <li><a href ng-click="HomePageClick()"><span class="fa fa-tasks"></span>&ensp; تعديل الصفحة الرئيسية </a></li>
+
+                            </ul></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-left">
+
+                    <li ng-show="!{{model.isLogged}}">
+                        <a class="page-scroll nav-font" href ng-click="LoginClick()"><span class="fa fa-user"></span>&ensp;دخول </a>
+                    </li>
+                    <li ng-show="{{model.isLogged}}">
+                        <a class="page-scroll nav-font" href ng-click="LogoutClick()">خروج</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <input id="scroll_top" />
+    @RenderBody()
+
+    <style>
+        #switcher-examples .switcher {
+            vertical-align: middle;
+        }
+
+        .loading-panel {
+            background: #ADD8E6;
+            display: none;
+            opacity: 0.9;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 11;
+            left: 0;
+        }
+
+        .loading-ui {
+            margin-top: 25%;
+        }
+    </style>
+
+    <div id="loading" class="loading-panel">
+        <div class="loading-ui">
+            <img src="~/Assets/images/spinloaders/ball-triangle.svg" width="50" alt="">
+        </div>
+    </div>
+
+    <!--footer-->
+    <br />
+    <footer class="footer">
+        <div class="container" align="center">
+            <img src="~/Assets/Images/ArcstuffLogo.png" width="200" height="70" />
+            <p class="muted credit">
+                All rights reserved to
+                <img src="~/Assets/Images/madentylogo.png" width="50" height="40" />
+                &copy; 2015 
+            </p>
+
+        </div>
+    </footer>
+</body>
+</html>
+
+

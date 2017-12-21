@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5ce459136e4a421dbc19c2125152c718" Name="Diagram1" ZoomLevel="69">
+        <EntityTypeShape EntityType="CMSModel.ADDING_ENTITY_TYPE" Width="1.5" PointX="11.366466818082364" PointY="27.028223840067266" />
+        <EntityTypeShape EntityType="CMSModel.C_TYPE" Width="1.5" PointX="0.35366487705785077" PointY="10.905627792191519" />
+        <EntityTypeShape EntityType="CMSModel.CLOSET" Width="1.5" PointX="4.2886674908402691" PointY="2.723096431569707" />
+        <EntityTypeShape EntityType="CMSModel.COMPLAINT_TYPE" Width="1.5" PointX="9.0742442314858742" PointY="31.37137253553205" />
+        <EntityTypeShape EntityType="CMSModel.CORRESPONDENCE_IN" Width="1.5" PointX="6.5100588270044222" PointY="14.285830325580124" />
+        <EntityTypeShape EntityType="CMSModel.DOCUMENT_TYPE" Width="1.5" PointX="4.5415250288981595" PointY="27.656425772074808" />
+        <EntityTypeShape EntityType="CMSModel.EMPLOYEE" Width="1.5" PointX="8.6820135138379477" PointY="14.707039825016185" />
+        <EntityTypeShape EntityType="CMSModel.ENTITY_TYPE" Width="1.5" PointX="6.7029922393630228" PointY="1.1038166736736039" />
+        <EntityTypeShape EntityType="CMSModel.HOMEPAGE_CONTENT" Width="1.5" PointX="3.9830969627867905" PointY="18.723534101025916" />
+        <EntityTypeShape EntityType="CMSModel.IMPORTANCE" Width="1.5" PointX="8.1827108953998948" PointY="0.39109058696361754" />
+        <EntityTypeShape EntityType="CMSModel.REPLY_TYPE" Width="1.5" PointX="3.1404296975305437" PointY="20.0050972793275" />
+        <EntityTypeShape EntityType="CMSModel.SHELF" Width="1.5" PointX="4.9942699023495756" PointY="26.565219742509171" />
+        <EntityTypeShape EntityType="CMSModel.STATUS" Width="1.5" PointX="5.7313747078792074" PointY="7.1390718403919937" />
+        <EntityTypeShape EntityType="CMSModel.TOPIC_TYPE" Width="1.5" PointX="1.9175083757925351" PointY="6.8383046122446212" />
+        <AssociationConnector Association="CMSModel.FK_CORRESPONDENCE_IN_ADDING_ENTITY_TYPE" />
+        <AssociationConnector Association="CMSModel.FK_CORRESPONDENCE_IN_C_TYPE" />
+        <AssociationConnector Association="CMSModel.FK_CORRESPONDENCE_CLOSET" />
+        <AssociationConnector Association="CMSModel.FK_CORRESPONDENCE_IN_DOCUMENT_TYPE" />
+        <AssociationConnector Association="CMSModel.FK_CORRESPONDENCE_IN_IMPORTANCE" />
+        <AssociationConnector Association="CMSModel.FK_CORRESPONDENCE_IN_SAVED_DOCUMENT_TYPE" />
+        <AssociationConnector Association="CMSModel.FK_CORRESPONDENCE_IN_SENDING_ENTITY_TYPE" />
+        <AssociationConnector Association="CMSModel.FK_CORRESPONDENCE_IN_STATUS" />
+        <AssociationConnector Association="CMSModel.FK_CORRESPONDENCE_IN_TOPIC_TYPE" />
+        <AssociationConnector Association="CMSModel.FK_CORRESPONDENCE_SHELF" />
+        <EntityTypeShape EntityType="CMSModel.CORRESPONDENCE_OUT" Width="1.5" PointX="11.375" PointY="14.25" />
+        <AssociationConnector Association="CMSModel.FK_CORRESPONDENCE_OUT_COMPLAINT_TYPE" />
+        <AssociationConnector Association="CMSModel.FK_CORRESPONDENCE_OUT_DOCUMENT_TYPE" />
+        <AssociationConnector Association="CMSModel.FK_CORRESPONDENCE_OUT_FOLLOWUP_ENTITY" />
+        <AssociationConnector Association="CMSModel.FK_CORRESPONDENCE_OUT_REPLY_TYPE" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

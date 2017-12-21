@@ -1,0 +1,223 @@
+﻿@{
+    Layout = "~/Views/_layout.cshtml";
+    @inherits System.Web.Mvc.WebViewPage
+}
+
+<script src="~/Components/CorrespondenceOUT/CorrespondenceOUTController.js"></script>
+
+<style>
+    #pdf {
+        width: 900px;
+        height: 500px;
+        margin: 2em auto;
+    }
+
+        #pdf p {
+            padding: 1em;
+        }
+
+        #pdf object {
+            display: block;
+        }
+</style>
+
+<section id="aboutproj" class="jumbotron  short well-back" >
+    <div class="container">
+        <h3> المكاتبات الصادرة - إنشاء </h3>
+    </div>
+</section>
+
+<section class="container no-padding" ng-controller="CorrespondenceOUTController">
+    <input type="hidden" value="create" id="token" />
+
+    <div class="row" ng-show="model.showMessage">
+        <div class="col-md-12">
+            <div class="alert alert-success">
+                <label id="msg">تم الحفظ بنجاح</label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <form name="create_form" id="create_form">
+                <div class="panel panel-default">
+                    <div class="panel-body form-horizontal ">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="description" class="col-sm-4 control-label">الجهة الصادر لها</label>
+                                <div class="col-sm-8">
+                                    <input required title="من فضلك ادخل هذا الحقل" type="text" class="form-control"   ng-model="model.correspondence.SENT_TO_ENTITY_NAME">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="concept" class="col-sm-4 control-label">الادارة او المكتب التابع له</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control"   ng-model="model.correspondence.OFFICE_ORGANIZATION">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="description" class="col-sm-4 control-label">رقم صادر ارشيف المكتب</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control"   ng-model="model.correspondence.FROM_OFFICE_SENT_NUMBER" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="date" class="col-sm-4 control-label">تاريخ صادر ارشيف المكتب</label>
+                                <div class="col-sm-8">
+                                    <input type="date" class="form-control" ng-model="model.correspondence.FROM_OFFICE_SENT_DATE" id="date" name="date">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="status" class="col-sm-4 control-label">نوعية المكاتبة الصادرة</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" ng-model="model.correspondence.DOCUMENT_TYPE_ID">
+                                        <option ng-repeat="item in model.comboBoxData.documentType" value="{{item.id}}">{{item.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="amount" class="col-sm-4 control-label">عدد المرفقات الصادرة</label>
+                                <div class="col-sm-8">
+                                    <input type="number" min="0" class="form-control"  ng-model="model.correspondence.NO_OF_ATTACHMENTS" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="description" class="col-sm-4 control-label">رقم صادر ارشيف المحافظة</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" ng-model="model.correspondence.ARCHIVE_OUT_NUMBER" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="status" class="col-sm-4 control-label">تصنيف الشكوي</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" ng-model="model.correspondence.COMPLAINT_TYPE_ID">
+                                        <option ng-repeat="item in model.comboBoxData.Complaints" value="{{item.id}}">{{item.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="status" class="col-sm-4 control-label">مسمي الشكوي</label>
+                                <div class="col-sm-8"> 
+                                    <input type="text" class="form-control" ng-model="model.correspondence.COMPLAINT_NAME" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="amount" class="col-sm-4 control-label">ملاحظات أخرى عن المكاتبة</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" ng-model="model.correspondence.NOTES" />
+                                </div>
+                            </div>
+                                                       <div class="form-group" ng-controller="UploadMultiple">
+                                <label for="amount" class="col-sm-4 control-label">صورة ضوئية للصادر</label>
+                              <div class="col-sm-8">
+                                    <input ngf-select ng-model="model.files" ngf-multiple="true" id="files" name="files" type="file" />
+                                    <ul>
+                                        <li ng-repeat="f in model.files">{{f.name}}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="date" class="col-sm-4 control-label">تاريخ صادر ارشيف المحافظة</label>
+                                <div class="col-sm-8">
+                                    <input type="date" class="form-control" ng-model="model.correspondence.ARCHIVE_OUT_NUMBER_DATE" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="description" class="col-sm-4 control-label">اسم مستلم الصادر</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" ng-model="model.correspondence.RECIEVER_NAME" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="description" class="col-sm-4 control-label">تاريخ استلام الصادر</label>
+                                <div class="col-sm-8">
+                                    <input type="date" class="form-control" ng-model="model.correspondence.RECIEPT_DATE" />
+                                </div>
+                            </div>
+                             <div class="form-group">
+                                <label for="description" class="col-sm-4 control-label">ربط المكاتبة</label>
+                                <div class="col-sm-8">
+                                    <input  type="text" class="form-control"  ng-model="model.correspondence.RELATED_CORRESPONDENCE_ID">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="status" class="col-sm-4 control-label">تصنيف جهة المتابعة</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" ng-model="model.correspondence.FOLLOWUP_ENTITY_TYPE_ID">
+                                        <option ng-repeat="item in model.comboBoxData.addingEntity" value="{{item.id}}">{{item.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+         @*                   <div class="form-group">
+                                <label for="status" class="col-sm-4 control-label">موقف المتابعة</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control">
+                                        <option ng-repeat="item in model.comboBoxData.status" value="{{item.id}}">{{item.name}}</option>
+                                    </select>
+                                </div>
+                            </div>*@
+                            <div class="form-group">
+                                <label for="concept" class="col-sm-4 control-label">الردود</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" ng-model="model.correspondence.REPLIES" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="amount" class="col-sm-4 control-label">تاريخ الرد</label>
+                                <div class="col-sm-8">
+                                    <input type="date" class="form-control" ng-model="model.correspondence.REPLY_DATE" />
+                                </div>
+                            </div> 
+                            <div class="form-group">
+                                <label for="concept" class="col-sm-4 control-label">مدة الرد</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" ng-model="model.correspondence.REPLY_DURATION" />
+                                </div>
+                            </div>
+                         
+                          
+                            <div class="form-group">
+                                <label for="status" class="col-sm-4 control-label">نوع الرد</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" ng-model="model.correspondence.REPLY_TYPE_ID">
+                                        <option ng-repeat="item in model.comboBoxData.Replies" value="{{item.id}}">{{item.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+
+ 
+                          @*  <div class="form-group" ng-controller="UploadMultiple">
+                                <label for="amount" class="col-sm-4 control-label">صورة ضوئية للرد</label>
+                                <div class="col-sm-8">
+                                    <input ngf-select ng-model="model.files" ngf-multiple="true" id="files" name="files" type="file" />
+                                    <ul>
+                                        <li ng-repeat="f in model.files">{{f.name}}</li>
+                                    </ul>
+                                </div>
+                            </div>*@
+                        </div>
+                        <hr />
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <hr class="wide" />
+                                <button type="submit" class="btn btn-primary center  preview-add-button" ng-click="create_form.$valid &&  CreateCorrespondence()">
+                                    <span class="glyphicon glyphicon-plus"></span>حفظ
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                     </div> 
+                <!-- / panel preview -->
+            </form>
+
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+<!-- /.content --> 

@@ -1,0 +1,90 @@
+﻿@{
+    Layout = "~/Views/_layout.cshtml";
+    @inherits System.Web.Mvc.WebViewPage
+}
+<script src="~/Components/HomePage/HomeController.js"></script>
+
+@*<style>
+    .header-content {
+        background-image:url('Assets/Images/orange.jpg');
+         position:absolute;
+          background-repeat:repeat-x;
+          width:100%;
+          height: 100%; /* Change it to auto if you need to div to adjust automatically according to contents inside it */
+          left:0px;
+    }
+</style>*@
+@*<header>*@
+@*  <div class="header-content" " ng-controller="HomeController">
+        <div class="header-content-inner" >
+            <div class="col-md-6 col-md-offset-3">
+                <center class=" "><img class="img-responsive" src="/Assets/Images/logo.png"></center><br>           
+            </div>
+
+        </div>
+    </div>*@
+@*<p class="shift-bottom"><a href="/ar/login" class="btn btn-default btn-xl page-scroll nav-font  ">دخول</a></p>*@
+
+@* </header> *@
+
+<section id="aboutproj" class="jumbotron no-padding well-back">
+    <div class="container">
+        <h3>مرحبا بكم</h3>
+        <p>يرجى اختيار الخدمة</p>
+    </div>
+</section>
+
+<section id="services" class="shorter">
+    <div class="container">
+        <div class="row">
+            <ul class="thumbnails">
+                <li class="col-md-3">
+                    <div class="thumbnail">
+                        <span class="fa fa-download fa-5x text-success" style="padding: 10px 10px 0 0;"></span>
+                        <div class="caption">
+                            <h3>المكاتبات الورادة </h3>
+                            <p>المكاتبات الورادة الى محافظة الجيزة</p>
+                            <p align="center">
+                                <a href="../CorrespondenceIN/index" class="btn btn-primary ">عرض</a>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li class="col-md-3">
+                    <div class="thumbnail">
+                        <span class="fa fa-upload fa-5x text-danger" style="padding: 10px 10px 0 0;"></span>
+                        <div class="caption">
+                            <h3> المكاتبات الصادرة</h3>
+                            <p>المكاتبات الصادرة من محافظة الجيزة</p>
+                            <p align="center">
+                                <a href="../CorrespondenceOUT/index" class="btn btn-primary ">عرض</a>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+              
+                <li class="col-md-3">
+                    <div class="thumbnail">
+                         <span class="fa fa-users fa-5x text-info" style="padding: 10px 10px 0 0;"></span>
+                        <div class="caption">
+                            <h3>الموظفون</h3>
+                            <p>بيانات العاملون بمحافظة الجيزة</p>
+                            <p align="center">
+                                <a href="../Employee/index" class="btn btn-primary ">عرض</a>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</section>
+
+<div  class="pagestart" ng-controller="HomeController" style="margin-top:-1%">
+    <section class="container no-padding">
+        <div class="row" id="HomePageContent">
+           
+        </div>
+    </section>
+</div>

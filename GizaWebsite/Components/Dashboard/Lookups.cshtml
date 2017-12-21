@@ -1,0 +1,42 @@
+﻿@{
+    Layout = "~/Views/_layout.cshtml";
+    @inherits System.Web.Mvc.WebViewPage
+}
+
+<script src="~/Components/Lookups/LookupsController.js"></script>
+ 
+
+<section id="services" class="shorter">
+    <div class="container">
+        <div class="row">
+            <ul class="thumbnails">
+                <li class="col-md-3">
+                    <div class="thumbnail">
+                        @*<img src="http://placehold.it/320x200" alt="ALT NAME" class="img-responsive" />*@
+                        <span class="fa fa-pencil fa-5x text-success"></span>
+                        <div class="caption">
+                            <h3>المكاتبات</h3>
+                            <p>المكاتبات الورادة الى محافظة الجيزة والصادرة منها</p>
+                            <p align="center">
+                                <a href="../Correspondence" class="btn btn-primary ">عرض</a>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li class="col-md-3">
+                    <div class="thumbnail">
+                        @*<img src="http://placehold.it/320x200" alt="ALT NAME" class="img-responsive" />*@
+                        <span class="fa fa-pencil fa-5x text-success"></span>
+                        <div class="caption">
+                            <h3>الاختيارات</h3>
+                            <p>الاختيارات المتاحة في صفحات البيانات</p>
+                            <p align="center">
+                                <a href="../Lookups" class="btn btn-primary ">عرض</a>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GizaWebsite", "GizaWebsite\GizaWebsite.csproj", "{454685FA-7FDB-4870-991D-58FDCE89533D}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://spreadout.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = GizaWebsite\\GizaWebsite.csproj
+		SccProjectName1 = GizaWebsite
+		SccLocalPath1 = GizaWebsite
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{454685FA-7FDB-4870-991D-58FDCE89533D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{454685FA-7FDB-4870-991D-58FDCE89533D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{454685FA-7FDB-4870-991D-58FDCE89533D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{454685FA-7FDB-4870-991D-58FDCE89533D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

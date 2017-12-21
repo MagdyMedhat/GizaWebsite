@@ -1,0 +1,43 @@
+﻿@{
+    Layout = "~/Views/_layout.cshtml";
+    @inherits System.Web.Mvc.WebViewPage
+}
+<script src="~/Components/Dashboard/HomePageController.js"></script>
+
+<section class="jumbotron well-back" style="margin-top: 50px">
+    <div class="container">
+        <h3>تعديل الصفحة الرئيسية</h3>
+    </div>
+</section> 
+<section class="container no-padding" ng-controller="HomePageController">
+    <div class="row" ng-show="flag">
+        <div class="col-md-12">
+            <div class="alert alert-success">
+                <label id="msg">تم الحفظ بنجاح</label>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-show="errorflag">
+        <div class="col-md-12">
+            <div class="alert alert-danger">
+                <label id="errormsg">حدث خطا!الرجاء المحاولة لاحقا</label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+       <div class="col-md-12"> 
+       </div>
+        <div class="col-md-12">
+            <textarea id="htmleditor" ng-wig="ui.dummy" >{{ui.content}}</textarea> 
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <a class="btn btn-primary center  preview-add-button" ng-click="saveContent()" style=" margin-top:20px; margin-left: -14px !important; float: left !important">
+                        حفظ
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

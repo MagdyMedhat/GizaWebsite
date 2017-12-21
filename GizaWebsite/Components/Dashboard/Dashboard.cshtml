@@ -1,0 +1,169 @@
+﻿@{
+    Layout = "~/Views/_layout.cshtml";
+    @inherits System.Web.Mvc.WebViewPage
+}
+<script src="~/Components/Dashboard/DashboardController.js"></script>
+
+<style>
+    .form-signin {
+        max-width: 330px;
+    }
+</style>
+
+<section class="jumbotron well-back" style="margin-top: 50px">
+    <div class="container">
+        <h3>تعديل اختيارات النظام</h3>
+    </div>
+</section>
+
+<!--------------------------------------Admin---------------------------------------------------->
+<section class="container no-padding" ng-controller="DashboardController">
+    <div class="row" ng-show="flag">
+        <div class="col-md-12">
+            <div class="alert alert-success">
+                <label id="msg">تم الحفظ بنجاح</label>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-show="errorflag">
+        <div class="col-md-12">
+            <div class="alert alert-danger">
+                <label id="errormsg">حدث خطا!الرجاء المحاولة لاحقا</label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-body form-horizontal ">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="concept" class="col-md-2 control-label">تصنيف جهة الوارد منها</label>
+                            <div class="col-md-10">
+                                <tags-input class="tags" name="sending_entity_types" id="sending_entity_types" ng-model="sending_entity_types"></tags-input>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <a class="btn btn-primary center  preview-add-button" ng-click="saveSendingEntityTypes()" style="float: left !important">حفظ
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="concept" class="col-md-2 control-label">حالة المكاتبة</label>
+                            <div class="col-md-10">
+                                <tags-input class="tags" id="status_types" name="status_types" ng-model="status_types" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <a class="btn btn-primary center  preview-add-button" ng-click="saveStatus()" style="float: left !important">حفظ
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="concept" class="col-md-2 control-label">نوع المكاتبة الواردة والنسخ المحفوظة</label>
+                            <div class="col-md-10">
+                                <tags-input class="tags" id="document_types" name="document_types" ng-model="document_types" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <a class="btn btn-primary center  preview-add-button" ng-click="saveDocumentTypes()" style="float: left !important">حفظ
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="concept" class="col-md-2 control-label">تصنيف المكاتبة</label>
+                            <div class="col-md-10">
+                                <tags-input class="tags" id="topic_types" name="topic_types" ng-model="topic_types" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <a class="btn btn-primary center  preview-add-button" ng-click="saveTopicTypes()" style="float: left !important">حفظ
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="concept" class="col-md-2 control-label">جهة الرصد</label>
+                            <div class="col-md-10">
+                                <tags-input class="tags" id="adding_entity_types" name="adding_entity_types" ng-model="adding_entity_types">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <a class="btn btn-primary center  preview-add-button" ng-click="saveAddingEntityTypes()" style="float: left !important">حفظ
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="concept" class="col-md-2 control-label">نوع المكاتبة</label>
+                            <div class="col-md-10">
+                                <tags-input class="tags" id="c_types" name="c_types" ng-model="c_types">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <a class="btn btn-primary center  preview-add-button" ng-click="saveCTypes()" style="float: left !important">حفظ
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="concept" class="col-md-2 control-label">درجة الاهمية</label>
+                            <div class="col-md-10">
+                                <tags-input class="tags" id="importance_types" name="importance_types" ng-model="importance_types">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <a class="btn btn-primary center  preview-add-button" ng-click="saveImportanceTypes()" style="float: left !important">حفظ
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="concept" class="col-md-2 control-label">دولاب الحفظ</label>
+                            <div class="col-md-10">
+                                <tags-input class="tags" id="closets" name="closets" ng-model="closets">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <a class="btn btn-primary center  preview-add-button" ng-click="saveClosets()" style="float: left !important">حفظ
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="concept" class="col-md-2 control-label">رف الحفظ</label>
+                            <div class="col-md-10">
+                                <tags-input class="tags" id="shelves" name="shelves" ng-model="shelves">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <a class="btn btn-primary center  preview-add-button" ng-click="saveShelves()" style="float: left !important">حفظ
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

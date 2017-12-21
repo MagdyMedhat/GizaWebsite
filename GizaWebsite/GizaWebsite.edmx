@@ -1,0 +1,1067 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ADDING_ENTITY_TYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME_EN" Type="nvarchar" MaxLength="150" />
+          <Property Name="NAME_AR" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="C_TYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME_EN" Type="nvarchar" MaxLength="150" />
+          <Property Name="NAME_AR" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="CLOSET">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME_EN" Type="nvarchar" MaxLength="150" />
+          <Property Name="NAME_AR" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="COMPLAINT_TYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME_EN" Type="nvarchar" MaxLength="150" />
+          <Property Name="NAME_AR" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="CORRESPONDENCE_IN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CORRESPONDENCE_NO" Type="nvarchar" MaxLength="100" />
+          <Property Name="C_TYPE_ID" Type="int" />
+          <Property Name="TOPIC" Type="nvarchar" MaxLength="50" />
+          <Property Name="TOPIC_TYPE_ID" Type="int" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="STATUS_ID" Type="int" />
+          <Property Name="IMPORTANCE_ID" Type="int" />
+          <Property Name="INCOMING_DATE" Type="datetime" />
+          <Property Name="SENDING_ENTITY_NAME" Type="nvarchar" MaxLength="250" />
+          <Property Name="SENDING_ENTITY_TYPE_ID" Type="int" />
+          <Property Name="TO_OFFICE_RECEIPT_DATE" Type="datetime" />
+          <Property Name="TO_OFFICE_RECEIPT_NUMBER" Type="int" />
+          <Property Name="ADDING_ENTITY_TYPE_ID" Type="int" />
+          <Property Name="MAIN_ENTITY_NAME" Type="nvarchar" MaxLength="250" />
+          <Property Name="COMPLAINT_OWNER_NAME" Type="nvarchar" MaxLength="250" />
+          <Property Name="COMPLAINT_OWNER_PHONE" Type="nvarchar" MaxLength="50" />
+          <Property Name="COMPLAINT_OWNER_ADDRESS" Type="nvarchar(max)" />
+          <Property Name="SAVED_DOCUMENT_TYPE_ID" Type="int" />
+          <Property Name="NO_OF_ATTACHMENTS" Type="int" />
+          <Property Name="INBOUND_DOC_TYPE_ID" Type="int" />
+          <Property Name="FOLDER_NUMBER" Type="int" />
+          <Property Name="FOLDER_NAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="CLOSET_ID" Type="int" />
+          <Property Name="SHELF_ID" Type="int" />
+          <Property Name="NOTES" Type="nvarchar(max)" />
+          <Property Name="RELATED_CORRESPONDENCE_ID" Type="int" />
+          <Property Name="IS_DELETED" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CORRESPONDENCE_OUT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SENT_TO_ENTITY_NAME" Type="nvarchar" MaxLength="250" />
+          <Property Name="OFFICE_ORGANIZATION" Type="nvarchar" MaxLength="250" />
+          <Property Name="FROM_OFFICE_SENT_DATE" Type="datetime" />
+          <Property Name="FROM_OFFICE_SENT_NUMBER" Type="int" />
+          <Property Name="DOCUMENT_TYPE_ID" Type="int" />
+          <Property Name="NO_OF_ATTACHMENTS" Type="int" />
+          <Property Name="ARCHIVE_OUT_NUMBER" Type="int" />
+          <Property Name="ARCHIVE_OUT_NUMBER_DATE" Type="datetime" />
+          <Property Name="RECIEVER_NAME" Type="nvarchar" MaxLength="250" />
+          <Property Name="RECIEPT_DATE" Type="datetime" />
+          <Property Name="FOLLOWUP_ENTITY_TYPE_ID" Type="int" />
+          <Property Name="REPLIES" Type="nvarchar" MaxLength="250" />
+          <Property Name="REPLY_DATE" Type="datetime" />
+          <Property Name="REPLY_DURATION" Type="int" />
+          <Property Name="COMPLAINT_TYPE_ID" Type="int" />
+          <Property Name="COMPLAINT_NAME" Type="nvarchar" MaxLength="250" />
+          <Property Name="REPLY_TYPE_ID" Type="int" />
+          <Property Name="NOTES" Type="nvarchar(max)" />
+          <Property Name="RELATED_CORRESPONDENCE_ID" Type="int" />
+          <Property Name="IS_DELETED" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DOCUMENT_TYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME_EN" Type="nvarchar" MaxLength="150" />
+          <Property Name="NAME_AR" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="EMPLOYEE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FILE_NUMBER" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="NATIONAL_ID" Type="nvarchar" MaxLength="14" />
+          <Property Name="DATE_HIRED" Type="date" />
+          <Property Name="DEPARTMENT" Type="nvarchar" MaxLength="50" />
+          <Property Name="INSURANCE_NUMBER" Type="int" />
+        </EntityType>
+        <EntityType Name="ENTITY_TYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME_EN" Type="nvarchar" MaxLength="150" />
+          <Property Name="NAME_AR" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="HOMEPAGE_CONTENT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HTML_CONTENT" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="IMPORTANCE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME_EN" Type="nvarchar" MaxLength="150" />
+          <Property Name="NAME_AR" Type="nvarchar" MaxLength="150" />
+          <Property Name="RANK" Type="int" />
+        </EntityType>
+        <EntityType Name="REPLY_TYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME_EN" Type="nvarchar" MaxLength="150" />
+          <Property Name="NAME_AR" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="SHELF">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME_EN" Type="nvarchar" MaxLength="150" />
+          <Property Name="NAME_AR" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="STATUS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME_EN" Type="nvarchar" MaxLength="150" />
+          <Property Name="NAME_AR" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="TOPIC_TYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME_EN" Type="nvarchar" MaxLength="150" />
+          <Property Name="NAME_AR" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <Association Name="FK_CORRESPONDENCE_CLOSET">
+          <End Role="CLOSET" Type="Self.CLOSET" Multiplicity="0..1" />
+          <End Role="CORRESPONDENCE_IN" Type="Self.CORRESPONDENCE_IN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLOSET">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CORRESPONDENCE_IN">
+              <PropertyRef Name="CLOSET_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CORRESPONDENCE_IN_ADDING_ENTITY_TYPE">
+          <End Role="ADDING_ENTITY_TYPE" Type="Self.ADDING_ENTITY_TYPE" Multiplicity="0..1" />
+          <End Role="CORRESPONDENCE_IN" Type="Self.CORRESPONDENCE_IN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADDING_ENTITY_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CORRESPONDENCE_IN">
+              <PropertyRef Name="ADDING_ENTITY_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CORRESPONDENCE_IN_C_TYPE">
+          <End Role="C_TYPE" Type="Self.C_TYPE" Multiplicity="0..1" />
+          <End Role="CORRESPONDENCE_IN" Type="Self.CORRESPONDENCE_IN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="C_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CORRESPONDENCE_IN">
+              <PropertyRef Name="C_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CORRESPONDENCE_IN_DOCUMENT_TYPE">
+          <End Role="DOCUMENT_TYPE" Type="Self.DOCUMENT_TYPE" Multiplicity="0..1" />
+          <End Role="CORRESPONDENCE_IN" Type="Self.CORRESPONDENCE_IN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOCUMENT_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CORRESPONDENCE_IN">
+              <PropertyRef Name="INBOUND_DOC_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CORRESPONDENCE_IN_IMPORTANCE">
+          <End Role="IMPORTANCE" Type="Self.IMPORTANCE" Multiplicity="0..1" />
+          <End Role="CORRESPONDENCE_IN" Type="Self.CORRESPONDENCE_IN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IMPORTANCE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CORRESPONDENCE_IN">
+              <PropertyRef Name="IMPORTANCE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CORRESPONDENCE_IN_SAVED_DOCUMENT_TYPE">
+          <End Role="DOCUMENT_TYPE" Type="Self.DOCUMENT_TYPE" Multiplicity="0..1" />
+          <End Role="CORRESPONDENCE_IN" Type="Self.CORRESPONDENCE_IN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOCUMENT_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CORRESPONDENCE_IN">
+              <PropertyRef Name="SAVED_DOCUMENT_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CORRESPONDENCE_IN_SENDING_ENTITY_TYPE">
+          <End Role="ENTITY_TYPE" Type="Self.ENTITY_TYPE" Multiplicity="0..1" />
+          <End Role="CORRESPONDENCE_IN" Type="Self.CORRESPONDENCE_IN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENTITY_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CORRESPONDENCE_IN">
+              <PropertyRef Name="SENDING_ENTITY_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CORRESPONDENCE_IN_STATUS">
+          <End Role="STATUS" Type="Self.STATUS" Multiplicity="0..1" />
+          <End Role="CORRESPONDENCE_IN" Type="Self.CORRESPONDENCE_IN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STATUS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CORRESPONDENCE_IN">
+              <PropertyRef Name="STATUS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CORRESPONDENCE_IN_TOPIC_TYPE">
+          <End Role="TOPIC_TYPE" Type="Self.TOPIC_TYPE" Multiplicity="0..1" />
+          <End Role="CORRESPONDENCE_IN" Type="Self.CORRESPONDENCE_IN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TOPIC_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CORRESPONDENCE_IN">
+              <PropertyRef Name="TOPIC_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CORRESPONDENCE_OUT_COMPLAINT_TYPE">
+          <End Role="COMPLAINT_TYPE" Type="Self.COMPLAINT_TYPE" Multiplicity="0..1" />
+          <End Role="CORRESPONDENCE_OUT" Type="Self.CORRESPONDENCE_OUT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMPLAINT_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CORRESPONDENCE_OUT">
+              <PropertyRef Name="COMPLAINT_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CORRESPONDENCE_OUT_DOCUMENT_TYPE">
+          <End Role="DOCUMENT_TYPE" Type="Self.DOCUMENT_TYPE" Multiplicity="0..1" />
+          <End Role="CORRESPONDENCE_OUT" Type="Self.CORRESPONDENCE_OUT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOCUMENT_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CORRESPONDENCE_OUT">
+              <PropertyRef Name="DOCUMENT_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CORRESPONDENCE_OUT_FOLLOWUP_ENTITY">
+          <End Role="ENTITY_TYPE" Type="Self.ENTITY_TYPE" Multiplicity="0..1" />
+          <End Role="CORRESPONDENCE_OUT" Type="Self.CORRESPONDENCE_OUT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENTITY_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CORRESPONDENCE_OUT">
+              <PropertyRef Name="FOLLOWUP_ENTITY_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CORRESPONDENCE_OUT_REPLY_TYPE">
+          <End Role="REPLY_TYPE" Type="Self.REPLY_TYPE" Multiplicity="0..1" />
+          <End Role="CORRESPONDENCE_OUT" Type="Self.CORRESPONDENCE_OUT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REPLY_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CORRESPONDENCE_OUT">
+              <PropertyRef Name="REPLY_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CORRESPONDENCE_SHELF">
+          <End Role="SHELF" Type="Self.SHELF" Multiplicity="0..1" />
+          <End Role="CORRESPONDENCE_IN" Type="Self.CORRESPONDENCE_IN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SHELF">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CORRESPONDENCE_IN">
+              <PropertyRef Name="SHELF_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CMSModelStoreContainer">
+          <EntitySet Name="ADDING_ENTITY_TYPE" EntityType="Self.ADDING_ENTITY_TYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="C_TYPE" EntityType="Self.C_TYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CLOSET" EntityType="Self.CLOSET" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="COMPLAINT_TYPE" EntityType="Self.COMPLAINT_TYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CORRESPONDENCE_IN" EntityType="Self.CORRESPONDENCE_IN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CORRESPONDENCE_OUT" EntityType="Self.CORRESPONDENCE_OUT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DOCUMENT_TYPE" EntityType="Self.DOCUMENT_TYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EMPLOYEE" EntityType="Self.EMPLOYEE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ENTITY_TYPE" EntityType="Self.ENTITY_TYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HOMEPAGE_CONTENT" EntityType="Self.HOMEPAGE_CONTENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IMPORTANCE" EntityType="Self.IMPORTANCE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="REPLY_TYPE" EntityType="Self.REPLY_TYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SHELF" EntityType="Self.SHELF" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STATUS" EntityType="Self.STATUS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TOPIC_TYPE" EntityType="Self.TOPIC_TYPE" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CORRESPONDENCE_CLOSET" Association="Self.FK_CORRESPONDENCE_CLOSET">
+            <End Role="CLOSET" EntitySet="CLOSET" />
+            <End Role="CORRESPONDENCE_IN" EntitySet="CORRESPONDENCE_IN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CORRESPONDENCE_IN_ADDING_ENTITY_TYPE" Association="Self.FK_CORRESPONDENCE_IN_ADDING_ENTITY_TYPE">
+            <End Role="ADDING_ENTITY_TYPE" EntitySet="ADDING_ENTITY_TYPE" />
+            <End Role="CORRESPONDENCE_IN" EntitySet="CORRESPONDENCE_IN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CORRESPONDENCE_IN_C_TYPE" Association="Self.FK_CORRESPONDENCE_IN_C_TYPE">
+            <End Role="C_TYPE" EntitySet="C_TYPE" />
+            <End Role="CORRESPONDENCE_IN" EntitySet="CORRESPONDENCE_IN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CORRESPONDENCE_IN_DOCUMENT_TYPE" Association="Self.FK_CORRESPONDENCE_IN_DOCUMENT_TYPE">
+            <End Role="DOCUMENT_TYPE" EntitySet="DOCUMENT_TYPE" />
+            <End Role="CORRESPONDENCE_IN" EntitySet="CORRESPONDENCE_IN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CORRESPONDENCE_IN_IMPORTANCE" Association="Self.FK_CORRESPONDENCE_IN_IMPORTANCE">
+            <End Role="IMPORTANCE" EntitySet="IMPORTANCE" />
+            <End Role="CORRESPONDENCE_IN" EntitySet="CORRESPONDENCE_IN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CORRESPONDENCE_IN_SAVED_DOCUMENT_TYPE" Association="Self.FK_CORRESPONDENCE_IN_SAVED_DOCUMENT_TYPE">
+            <End Role="DOCUMENT_TYPE" EntitySet="DOCUMENT_TYPE" />
+            <End Role="CORRESPONDENCE_IN" EntitySet="CORRESPONDENCE_IN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CORRESPONDENCE_IN_SENDING_ENTITY_TYPE" Association="Self.FK_CORRESPONDENCE_IN_SENDING_ENTITY_TYPE">
+            <End Role="ENTITY_TYPE" EntitySet="ENTITY_TYPE" />
+            <End Role="CORRESPONDENCE_IN" EntitySet="CORRESPONDENCE_IN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CORRESPONDENCE_IN_STATUS" Association="Self.FK_CORRESPONDENCE_IN_STATUS">
+            <End Role="STATUS" EntitySet="STATUS" />
+            <End Role="CORRESPONDENCE_IN" EntitySet="CORRESPONDENCE_IN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CORRESPONDENCE_IN_TOPIC_TYPE" Association="Self.FK_CORRESPONDENCE_IN_TOPIC_TYPE">
+            <End Role="TOPIC_TYPE" EntitySet="TOPIC_TYPE" />
+            <End Role="CORRESPONDENCE_IN" EntitySet="CORRESPONDENCE_IN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CORRESPONDENCE_OUT_COMPLAINT_TYPE" Association="Self.FK_CORRESPONDENCE_OUT_COMPLAINT_TYPE">
+            <End Role="COMPLAINT_TYPE" EntitySet="COMPLAINT_TYPE" />
+            <End Role="CORRESPONDENCE_OUT" EntitySet="CORRESPONDENCE_OUT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CORRESPONDENCE_OUT_DOCUMENT_TYPE" Association="Self.FK_CORRESPONDENCE_OUT_DOCUMENT_TYPE">
+            <End Role="DOCUMENT_TYPE" EntitySet="DOCUMENT_TYPE" />
+            <End Role="CORRESPONDENCE_OUT" EntitySet="CORRESPONDENCE_OUT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CORRESPONDENCE_OUT_FOLLOWUP_ENTITY" Association="Self.FK_CORRESPONDENCE_OUT_FOLLOWUP_ENTITY">
+            <End Role="ENTITY_TYPE" EntitySet="ENTITY_TYPE" />
+            <End Role="CORRESPONDENCE_OUT" EntitySet="CORRESPONDENCE_OUT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CORRESPONDENCE_OUT_REPLY_TYPE" Association="Self.FK_CORRESPONDENCE_OUT_REPLY_TYPE">
+            <End Role="REPLY_TYPE" EntitySet="REPLY_TYPE" />
+            <End Role="CORRESPONDENCE_OUT" EntitySet="CORRESPONDENCE_OUT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CORRESPONDENCE_SHELF" Association="Self.FK_CORRESPONDENCE_SHELF">
+            <End Role="SHELF" EntitySet="SHELF" />
+            <End Role="CORRESPONDENCE_IN" EntitySet="CORRESPONDENCE_IN" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CMSModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="CMSEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="ADDING_ENTITY_TYPE" EntityType="CMSModel.ADDING_ENTITY_TYPE" />
+          <EntitySet Name="C_TYPE" EntityType="CMSModel.C_TYPE" />
+          <EntitySet Name="CLOSETs" EntityType="CMSModel.CLOSET" />
+          <EntitySet Name="COMPLAINT_TYPE" EntityType="CMSModel.COMPLAINT_TYPE" />
+          <EntitySet Name="CORRESPONDENCE_IN" EntityType="CMSModel.CORRESPONDENCE_IN" />
+          <EntitySet Name="CORRESPONDENCE_OUT" EntityType="CMSModel.CORRESPONDENCE_OUT" />
+          <EntitySet Name="DOCUMENT_TYPE" EntityType="CMSModel.DOCUMENT_TYPE" />
+          <EntitySet Name="EMPLOYEEs" EntityType="CMSModel.EMPLOYEE" />
+          <EntitySet Name="ENTITY_TYPE" EntityType="CMSModel.ENTITY_TYPE" />
+          <EntitySet Name="HOMEPAGE_CONTENT" EntityType="CMSModel.HOMEPAGE_CONTENT" />
+          <EntitySet Name="IMPORTANCEs" EntityType="CMSModel.IMPORTANCE" />
+          <EntitySet Name="REPLY_TYPE" EntityType="CMSModel.REPLY_TYPE" />
+          <EntitySet Name="SHELves" EntityType="CMSModel.SHELF" />
+          <EntitySet Name="STATUS" EntityType="CMSModel.STATUS" />
+          <EntitySet Name="TOPIC_TYPE" EntityType="CMSModel.TOPIC_TYPE" />
+          <AssociationSet Name="FK_CORRESPONDENCE_IN_ADDING_ENTITY_TYPE" Association="CMSModel.FK_CORRESPONDENCE_IN_ADDING_ENTITY_TYPE">
+            <End Role="ADDING_ENTITY_TYPE" EntitySet="ADDING_ENTITY_TYPE" />
+            <End Role="CORRESPONDENCE_IN" EntitySet="CORRESPONDENCE_IN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CORRESPONDENCE_IN_C_TYPE" Association="CMSModel.FK_CORRESPONDENCE_IN_C_TYPE">
+            <End Role="C_TYPE" EntitySet="C_TYPE" />
+            <End Role="CORRESPONDENCE_IN" EntitySet="CORRESPONDENCE_IN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CORRESPONDENCE_CLOSET" Association="CMSModel.FK_CORRESPONDENCE_CLOSET">
+            <End Role="CLOSET" EntitySet="CLOSETs" />
+            <End Role="CORRESPONDENCE_IN" EntitySet="CORRESPONDENCE_IN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CORRESPONDENCE_OUT_COMPLAINT_TYPE" Association="CMSModel.FK_CORRESPONDENCE_OUT_COMPLAINT_TYPE">
+            <End Role="COMPLAINT_TYPE" EntitySet="COMPLAINT_TYPE" />
+            <End Role="CORRESPONDENCE_OUT" EntitySet="CORRESPONDENCE_OUT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CORRESPONDENCE_IN_DOCUMENT_TYPE" Association="CMSModel.FK_CORRESPONDENCE_IN_DOCUMENT_TYPE">
+            <End Role="DOCUMENT_TYPE" EntitySet="DOCUMENT_TYPE" />
+            <End Role="CORRESPONDENCE_IN" EntitySet="CORRESPONDENCE_IN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CORRESPONDENCE_IN_IMPORTANCE" Association="CMSModel.FK_CORRESPONDENCE_IN_IMPORTANCE">
+            <End Role="IMPORTANCE" EntitySet="IMPORTANCEs" />
+            <End Role="CORRESPONDENCE_IN" EntitySet="CORRESPONDENCE_IN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CORRESPONDENCE_IN_SAVED_DOCUMENT_TYPE" Association="CMSModel.FK_CORRESPONDENCE_IN_SAVED_DOCUMENT_TYPE">
+            <End Role="DOCUMENT_TYPE" EntitySet="DOCUMENT_TYPE" />
+            <End Role="CORRESPONDENCE_IN" EntitySet="CORRESPONDENCE_IN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CORRESPONDENCE_IN_SENDING_ENTITY_TYPE" Association="CMSModel.FK_CORRESPONDENCE_IN_SENDING_ENTITY_TYPE">
+            <End Role="ENTITY_TYPE" EntitySet="ENTITY_TYPE" />
+            <End Role="CORRESPONDENCE_IN" EntitySet="CORRESPONDENCE_IN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CORRESPONDENCE_IN_STATUS" Association="CMSModel.FK_CORRESPONDENCE_IN_STATUS">
+            <End Role="STATUS" EntitySet="STATUS" />
+            <End Role="CORRESPONDENCE_IN" EntitySet="CORRESPONDENCE_IN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CORRESPONDENCE_IN_TOPIC_TYPE" Association="CMSModel.FK_CORRESPONDENCE_IN_TOPIC_TYPE">
+            <End Role="TOPIC_TYPE" EntitySet="TOPIC_TYPE" />
+            <End Role="CORRESPONDENCE_IN" EntitySet="CORRESPONDENCE_IN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CORRESPONDENCE_SHELF" Association="CMSModel.FK_CORRESPONDENCE_SHELF">
+            <End Role="SHELF" EntitySet="SHELves" />
+            <End Role="CORRESPONDENCE_IN" EntitySet="CORRESPONDENCE_IN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CORRESPONDENCE_OUT_DOCUMENT_TYPE" Association="CMSModel.FK_CORRESPONDENCE_OUT_DOCUMENT_TYPE">
+            <End Role="DOCUMENT_TYPE" EntitySet="DOCUMENT_TYPE" />
+            <End Role="CORRESPONDENCE_OUT" EntitySet="CORRESPONDENCE_OUT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CORRESPONDENCE_OUT_FOLLOWUP_ENTITY" Association="CMSModel.FK_CORRESPONDENCE_OUT_FOLLOWUP_ENTITY">
+            <End Role="ENTITY_TYPE" EntitySet="ENTITY_TYPE" />
+            <End Role="CORRESPONDENCE_OUT" EntitySet="CORRESPONDENCE_OUT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CORRESPONDENCE_OUT_REPLY_TYPE" Association="CMSModel.FK_CORRESPONDENCE_OUT_REPLY_TYPE">
+            <End Role="REPLY_TYPE" EntitySet="REPLY_TYPE" />
+            <End Role="CORRESPONDENCE_OUT" EntitySet="CORRESPONDENCE_OUT" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ADDING_ENTITY_TYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="NAME_EN" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NAME_AR" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CORRESPONDENCE_IN" Relationship="CMSModel.FK_CORRESPONDENCE_IN_ADDING_ENTITY_TYPE" FromRole="ADDING_ENTITY_TYPE" ToRole="CORRESPONDENCE_IN" />
+        </EntityType>
+        <EntityType Name="C_TYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="NAME_EN" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NAME_AR" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CORRESPONDENCE_IN" Relationship="CMSModel.FK_CORRESPONDENCE_IN_C_TYPE" FromRole="C_TYPE" ToRole="CORRESPONDENCE_IN" />
+        </EntityType>
+        <EntityType Name="CLOSET">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="NAME_EN" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NAME_AR" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CORRESPONDENCE_IN" Relationship="CMSModel.FK_CORRESPONDENCE_CLOSET" FromRole="CLOSET" ToRole="CORRESPONDENCE_IN" />
+        </EntityType>
+        <EntityType Name="COMPLAINT_TYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="NAME_EN" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NAME_AR" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CORRESPONDENCE_OUT" Relationship="CMSModel.FK_CORRESPONDENCE_OUT_COMPLAINT_TYPE" FromRole="COMPLAINT_TYPE" ToRole="CORRESPONDENCE_OUT" />
+        </EntityType>
+        <EntityType Name="CORRESPONDENCE_IN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="CORRESPONDENCE_NO" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="C_TYPE_ID" />
+          <Property Type="String" Name="TOPIC" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="TOPIC_TYPE_ID" />
+          <Property Type="DateTime" Name="CREATED_DATE" Precision="3" />
+          <Property Type="Int32" Name="STATUS_ID" />
+          <Property Type="Int32" Name="IMPORTANCE_ID" />
+          <Property Type="DateTime" Name="INCOMING_DATE" Precision="3" />
+          <Property Type="String" Name="SENDING_ENTITY_NAME" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="SENDING_ENTITY_TYPE_ID" />
+          <Property Type="DateTime" Name="TO_OFFICE_RECEIPT_DATE" Precision="3" />
+          <Property Type="Int32" Name="TO_OFFICE_RECEIPT_NUMBER" />
+          <Property Type="Int32" Name="ADDING_ENTITY_TYPE_ID" />
+          <Property Type="String" Name="MAIN_ENTITY_NAME" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="COMPLAINT_OWNER_NAME" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="COMPLAINT_OWNER_PHONE" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="COMPLAINT_OWNER_ADDRESS" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="SAVED_DOCUMENT_TYPE_ID" />
+          <Property Type="Int32" Name="NO_OF_ATTACHMENTS" />
+          <Property Type="Int32" Name="INBOUND_DOC_TYPE_ID" />
+          <Property Type="Int32" Name="FOLDER_NUMBER" />
+          <Property Type="String" Name="FOLDER_NAME" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CLOSET_ID" />
+          <Property Type="Int32" Name="SHELF_ID" />
+          <Property Type="String" Name="NOTES" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="RELATED_CORRESPONDENCE_ID" />
+          <Property Type="Boolean" Name="IS_DELETED" Nullable="false" />
+          <NavigationProperty Name="ADDING_ENTITY_TYPE" Relationship="CMSModel.FK_CORRESPONDENCE_IN_ADDING_ENTITY_TYPE" FromRole="CORRESPONDENCE_IN" ToRole="ADDING_ENTITY_TYPE" />
+          <NavigationProperty Name="C_TYPE" Relationship="CMSModel.FK_CORRESPONDENCE_IN_C_TYPE" FromRole="CORRESPONDENCE_IN" ToRole="C_TYPE" />
+          <NavigationProperty Name="CLOSET" Relationship="CMSModel.FK_CORRESPONDENCE_CLOSET" FromRole="CORRESPONDENCE_IN" ToRole="CLOSET" />
+          <NavigationProperty Name="DOCUMENT_TYPE" Relationship="CMSModel.FK_CORRESPONDENCE_IN_DOCUMENT_TYPE" FromRole="CORRESPONDENCE_IN" ToRole="DOCUMENT_TYPE" />
+          <NavigationProperty Name="IMPORTANCE" Relationship="CMSModel.FK_CORRESPONDENCE_IN_IMPORTANCE" FromRole="CORRESPONDENCE_IN" ToRole="IMPORTANCE" />
+          <NavigationProperty Name="DOCUMENT_TYPE1" Relationship="CMSModel.FK_CORRESPONDENCE_IN_SAVED_DOCUMENT_TYPE" FromRole="CORRESPONDENCE_IN" ToRole="DOCUMENT_TYPE" />
+          <NavigationProperty Name="ENTITY_TYPE" Relationship="CMSModel.FK_CORRESPONDENCE_IN_SENDING_ENTITY_TYPE" FromRole="CORRESPONDENCE_IN" ToRole="ENTITY_TYPE" />
+          <NavigationProperty Name="STATUS" Relationship="CMSModel.FK_CORRESPONDENCE_IN_STATUS" FromRole="CORRESPONDENCE_IN" ToRole="STATUS" />
+          <NavigationProperty Name="TOPIC_TYPE" Relationship="CMSModel.FK_CORRESPONDENCE_IN_TOPIC_TYPE" FromRole="CORRESPONDENCE_IN" ToRole="TOPIC_TYPE" />
+          <NavigationProperty Name="SHELF" Relationship="CMSModel.FK_CORRESPONDENCE_SHELF" FromRole="CORRESPONDENCE_IN" ToRole="SHELF" />
+        </EntityType>
+        <EntityType Name="CORRESPONDENCE_OUT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="SENT_TO_ENTITY_NAME" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="OFFICE_ORGANIZATION" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="FROM_OFFICE_SENT_DATE" Precision="3" />
+          <Property Type="Int32" Name="FROM_OFFICE_SENT_NUMBER" />
+          <Property Type="Int32" Name="DOCUMENT_TYPE_ID" />
+          <Property Type="Int32" Name="NO_OF_ATTACHMENTS" />
+          <Property Type="Int32" Name="ARCHIVE_OUT_NUMBER" />
+          <Property Type="DateTime" Name="ARCHIVE_OUT_NUMBER_DATE" Precision="3" />
+          <Property Type="String" Name="RECIEVER_NAME" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="RECIEPT_DATE" Precision="3" />
+          <Property Type="Int32" Name="FOLLOWUP_ENTITY_TYPE_ID" />
+          <Property Type="String" Name="REPLIES" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="REPLY_DATE" Precision="3" />
+          <Property Type="Int32" Name="REPLY_DURATION" />
+          <Property Type="Int32" Name="COMPLAINT_TYPE_ID" />
+          <Property Type="String" Name="COMPLAINT_NAME" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="REPLY_TYPE_ID" />
+          <Property Type="String" Name="NOTES" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="RELATED_CORRESPONDENCE_ID" />
+          <Property Type="Boolean" Name="IS_DELETED" Nullable="false" />
+          <NavigationProperty Name="COMPLAINT_TYPE" Relationship="CMSModel.FK_CORRESPONDENCE_OUT_COMPLAINT_TYPE" FromRole="CORRESPONDENCE_OUT" ToRole="COMPLAINT_TYPE" />
+          <NavigationProperty Name="DOCUMENT_TYPE" Relationship="CMSModel.FK_CORRESPONDENCE_OUT_DOCUMENT_TYPE" FromRole="CORRESPONDENCE_OUT" ToRole="DOCUMENT_TYPE" />
+          <NavigationProperty Name="ENTITY_TYPE" Relationship="CMSModel.FK_CORRESPONDENCE_OUT_FOLLOWUP_ENTITY" FromRole="CORRESPONDENCE_OUT" ToRole="ENTITY_TYPE" />
+          <NavigationProperty Name="REPLY_TYPE" Relationship="CMSModel.FK_CORRESPONDENCE_OUT_REPLY_TYPE" FromRole="CORRESPONDENCE_OUT" ToRole="REPLY_TYPE" />
+        </EntityType>
+        <EntityType Name="DOCUMENT_TYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="NAME_EN" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NAME_AR" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CORRESPONDENCE_IN" Relationship="CMSModel.FK_CORRESPONDENCE_IN_DOCUMENT_TYPE" FromRole="DOCUMENT_TYPE" ToRole="CORRESPONDENCE_IN" />
+          <NavigationProperty Name="CORRESPONDENCE_IN1" Relationship="CMSModel.FK_CORRESPONDENCE_IN_SAVED_DOCUMENT_TYPE" FromRole="DOCUMENT_TYPE" ToRole="CORRESPONDENCE_IN" />
+          <NavigationProperty Name="CORRESPONDENCE_OUT" Relationship="CMSModel.FK_CORRESPONDENCE_OUT_DOCUMENT_TYPE" FromRole="DOCUMENT_TYPE" ToRole="CORRESPONDENCE_OUT" />
+        </EntityType>
+        <EntityType Name="EMPLOYEE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="FILE_NUMBER" Nullable="false" />
+          <Property Type="String" Name="NAME" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NATIONAL_ID" MaxLength="14" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DATE_HIRED" Precision="0" />
+          <Property Type="String" Name="DEPARTMENT" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="INSURANCE_NUMBER" />
+        </EntityType>
+        <EntityType Name="ENTITY_TYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="NAME_EN" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NAME_AR" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CORRESPONDENCE_IN" Relationship="CMSModel.FK_CORRESPONDENCE_IN_SENDING_ENTITY_TYPE" FromRole="ENTITY_TYPE" ToRole="CORRESPONDENCE_IN" />
+          <NavigationProperty Name="CORRESPONDENCE_OUT" Relationship="CMSModel.FK_CORRESPONDENCE_OUT_FOLLOWUP_ENTITY" FromRole="ENTITY_TYPE" ToRole="CORRESPONDENCE_OUT" />
+        </EntityType>
+        <EntityType Name="HOMEPAGE_CONTENT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="HTML_CONTENT" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="IMPORTANCE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="NAME_EN" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NAME_AR" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="RANK" />
+          <NavigationProperty Name="CORRESPONDENCE_IN" Relationship="CMSModel.FK_CORRESPONDENCE_IN_IMPORTANCE" FromRole="IMPORTANCE" ToRole="CORRESPONDENCE_IN" />
+        </EntityType>
+        <EntityType Name="REPLY_TYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="NAME_EN" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NAME_AR" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CORRESPONDENCE_OUT" Relationship="CMSModel.FK_CORRESPONDENCE_OUT_REPLY_TYPE" FromRole="REPLY_TYPE" ToRole="CORRESPONDENCE_OUT" />
+        </EntityType>
+        <EntityType Name="SHELF">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="NAME_EN" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NAME_AR" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CORRESPONDENCE_IN" Relationship="CMSModel.FK_CORRESPONDENCE_SHELF" FromRole="SHELF" ToRole="CORRESPONDENCE_IN" />
+        </EntityType>
+        <EntityType Name="STATUS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="NAME_EN" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NAME_AR" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CORRESPONDENCE_IN" Relationship="CMSModel.FK_CORRESPONDENCE_IN_STATUS" FromRole="STATUS" ToRole="CORRESPONDENCE_IN" />
+        </EntityType>
+        <EntityType Name="TOPIC_TYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="NAME_EN" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NAME_AR" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CORRESPONDENCE_IN" Relationship="CMSModel.FK_CORRESPONDENCE_IN_TOPIC_TYPE" FromRole="TOPIC_TYPE" ToRole="CORRESPONDENCE_IN" />
+        </EntityType>
+        <Association Name="FK_CORRESPONDENCE_IN_ADDING_ENTITY_TYPE">
+          <End Type="CMSModel.ADDING_ENTITY_TYPE" Role="ADDING_ENTITY_TYPE" Multiplicity="0..1" />
+          <End Type="CMSModel.CORRESPONDENCE_IN" Role="CORRESPONDENCE_IN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ADDING_ENTITY_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CORRESPONDENCE_IN">
+              <PropertyRef Name="ADDING_ENTITY_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CORRESPONDENCE_IN_C_TYPE">
+          <End Type="CMSModel.C_TYPE" Role="C_TYPE" Multiplicity="0..1" />
+          <End Type="CMSModel.CORRESPONDENCE_IN" Role="CORRESPONDENCE_IN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="C_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CORRESPONDENCE_IN">
+              <PropertyRef Name="C_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CORRESPONDENCE_CLOSET">
+          <End Type="CMSModel.CLOSET" Role="CLOSET" Multiplicity="0..1" />
+          <End Type="CMSModel.CORRESPONDENCE_IN" Role="CORRESPONDENCE_IN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLOSET">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CORRESPONDENCE_IN">
+              <PropertyRef Name="CLOSET_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CORRESPONDENCE_OUT_COMPLAINT_TYPE">
+          <End Type="CMSModel.COMPLAINT_TYPE" Role="COMPLAINT_TYPE" Multiplicity="0..1" />
+          <End Type="CMSModel.CORRESPONDENCE_OUT" Role="CORRESPONDENCE_OUT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMPLAINT_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CORRESPONDENCE_OUT">
+              <PropertyRef Name="COMPLAINT_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CORRESPONDENCE_IN_DOCUMENT_TYPE">
+          <End Type="CMSModel.DOCUMENT_TYPE" Role="DOCUMENT_TYPE" Multiplicity="0..1" />
+          <End Type="CMSModel.CORRESPONDENCE_IN" Role="CORRESPONDENCE_IN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOCUMENT_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CORRESPONDENCE_IN">
+              <PropertyRef Name="INBOUND_DOC_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CORRESPONDENCE_IN_IMPORTANCE">
+          <End Type="CMSModel.IMPORTANCE" Role="IMPORTANCE" Multiplicity="0..1" />
+          <End Type="CMSModel.CORRESPONDENCE_IN" Role="CORRESPONDENCE_IN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IMPORTANCE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CORRESPONDENCE_IN">
+              <PropertyRef Name="IMPORTANCE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CORRESPONDENCE_IN_SAVED_DOCUMENT_TYPE">
+          <End Type="CMSModel.DOCUMENT_TYPE" Role="DOCUMENT_TYPE" Multiplicity="0..1" />
+          <End Type="CMSModel.CORRESPONDENCE_IN" Role="CORRESPONDENCE_IN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOCUMENT_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CORRESPONDENCE_IN">
+              <PropertyRef Name="SAVED_DOCUMENT_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CORRESPONDENCE_IN_SENDING_ENTITY_TYPE">
+          <End Type="CMSModel.ENTITY_TYPE" Role="ENTITY_TYPE" Multiplicity="0..1" />
+          <End Type="CMSModel.CORRESPONDENCE_IN" Role="CORRESPONDENCE_IN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENTITY_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CORRESPONDENCE_IN">
+              <PropertyRef Name="SENDING_ENTITY_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CORRESPONDENCE_IN_STATUS">
+          <End Type="CMSModel.STATUS" Role="STATUS" Multiplicity="0..1" />
+          <End Type="CMSModel.CORRESPONDENCE_IN" Role="CORRESPONDENCE_IN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STATUS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CORRESPONDENCE_IN">
+              <PropertyRef Name="STATUS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CORRESPONDENCE_IN_TOPIC_TYPE">
+          <End Type="CMSModel.TOPIC_TYPE" Role="TOPIC_TYPE" Multiplicity="0..1" />
+          <End Type="CMSModel.CORRESPONDENCE_IN" Role="CORRESPONDENCE_IN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TOPIC_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CORRESPONDENCE_IN">
+              <PropertyRef Name="TOPIC_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CORRESPONDENCE_SHELF">
+          <End Type="CMSModel.SHELF" Role="SHELF" Multiplicity="0..1" />
+          <End Type="CMSModel.CORRESPONDENCE_IN" Role="CORRESPONDENCE_IN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SHELF">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CORRESPONDENCE_IN">
+              <PropertyRef Name="SHELF_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CORRESPONDENCE_OUT_DOCUMENT_TYPE">
+          <End Type="CMSModel.DOCUMENT_TYPE" Role="DOCUMENT_TYPE" Multiplicity="0..1" />
+          <End Type="CMSModel.CORRESPONDENCE_OUT" Role="CORRESPONDENCE_OUT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOCUMENT_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CORRESPONDENCE_OUT">
+              <PropertyRef Name="DOCUMENT_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CORRESPONDENCE_OUT_FOLLOWUP_ENTITY">
+          <End Type="CMSModel.ENTITY_TYPE" Role="ENTITY_TYPE" Multiplicity="0..1" />
+          <End Type="CMSModel.CORRESPONDENCE_OUT" Role="CORRESPONDENCE_OUT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENTITY_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CORRESPONDENCE_OUT">
+              <PropertyRef Name="FOLLOWUP_ENTITY_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CORRESPONDENCE_OUT_REPLY_TYPE">
+          <End Type="CMSModel.REPLY_TYPE" Role="REPLY_TYPE" Multiplicity="0..1" />
+          <End Type="CMSModel.CORRESPONDENCE_OUT" Role="CORRESPONDENCE_OUT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REPLY_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CORRESPONDENCE_OUT">
+              <PropertyRef Name="REPLY_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CMSModelStoreContainer" CdmEntityContainer="CMSEntities">
+          <EntitySetMapping Name="ADDING_ENTITY_TYPE">
+            <EntityTypeMapping TypeName="CMSModel.ADDING_ENTITY_TYPE">
+              <MappingFragment StoreEntitySet="ADDING_ENTITY_TYPE">
+                <ScalarProperty Name="NAME_AR" ColumnName="NAME_AR" />
+                <ScalarProperty Name="NAME_EN" ColumnName="NAME_EN" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C_TYPE">
+            <EntityTypeMapping TypeName="CMSModel.C_TYPE">
+              <MappingFragment StoreEntitySet="C_TYPE">
+                <ScalarProperty Name="NAME_AR" ColumnName="NAME_AR" />
+                <ScalarProperty Name="NAME_EN" ColumnName="NAME_EN" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CLOSETs">
+            <EntityTypeMapping TypeName="CMSModel.CLOSET">
+              <MappingFragment StoreEntitySet="CLOSET">
+                <ScalarProperty Name="NAME_AR" ColumnName="NAME_AR" />
+                <ScalarProperty Name="NAME_EN" ColumnName="NAME_EN" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="COMPLAINT_TYPE">
+            <EntityTypeMapping TypeName="CMSModel.COMPLAINT_TYPE">
+              <MappingFragment StoreEntitySet="COMPLAINT_TYPE">
+                <ScalarProperty Name="NAME_AR" ColumnName="NAME_AR" />
+                <ScalarProperty Name="NAME_EN" ColumnName="NAME_EN" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CORRESPONDENCE_IN">
+            <EntityTypeMapping TypeName="CMSModel.CORRESPONDENCE_IN">
+              <MappingFragment StoreEntitySet="CORRESPONDENCE_IN">
+                <ScalarProperty Name="IS_DELETED" ColumnName="IS_DELETED" />
+                <ScalarProperty Name="RELATED_CORRESPONDENCE_ID" ColumnName="RELATED_CORRESPONDENCE_ID" />
+                <ScalarProperty Name="NOTES" ColumnName="NOTES" />
+                <ScalarProperty Name="SHELF_ID" ColumnName="SHELF_ID" />
+                <ScalarProperty Name="CLOSET_ID" ColumnName="CLOSET_ID" />
+                <ScalarProperty Name="FOLDER_NAME" ColumnName="FOLDER_NAME" />
+                <ScalarProperty Name="FOLDER_NUMBER" ColumnName="FOLDER_NUMBER" />
+                <ScalarProperty Name="INBOUND_DOC_TYPE_ID" ColumnName="INBOUND_DOC_TYPE_ID" />
+                <ScalarProperty Name="NO_OF_ATTACHMENTS" ColumnName="NO_OF_ATTACHMENTS" />
+                <ScalarProperty Name="SAVED_DOCUMENT_TYPE_ID" ColumnName="SAVED_DOCUMENT_TYPE_ID" />
+                <ScalarProperty Name="COMPLAINT_OWNER_ADDRESS" ColumnName="COMPLAINT_OWNER_ADDRESS" />
+                <ScalarProperty Name="COMPLAINT_OWNER_PHONE" ColumnName="COMPLAINT_OWNER_PHONE" />
+                <ScalarProperty Name="COMPLAINT_OWNER_NAME" ColumnName="COMPLAINT_OWNER_NAME" />
+                <ScalarProperty Name="MAIN_ENTITY_NAME" ColumnName="MAIN_ENTITY_NAME" />
+                <ScalarProperty Name="ADDING_ENTITY_TYPE_ID" ColumnName="ADDING_ENTITY_TYPE_ID" />
+                <ScalarProperty Name="TO_OFFICE_RECEIPT_NUMBER" ColumnName="TO_OFFICE_RECEIPT_NUMBER" />
+                <ScalarProperty Name="TO_OFFICE_RECEIPT_DATE" ColumnName="TO_OFFICE_RECEIPT_DATE" />
+                <ScalarProperty Name="SENDING_ENTITY_TYPE_ID" ColumnName="SENDING_ENTITY_TYPE_ID" />
+                <ScalarProperty Name="SENDING_ENTITY_NAME" ColumnName="SENDING_ENTITY_NAME" />
+                <ScalarProperty Name="INCOMING_DATE" ColumnName="INCOMING_DATE" />
+                <ScalarProperty Name="IMPORTANCE_ID" ColumnName="IMPORTANCE_ID" />
+                <ScalarProperty Name="STATUS_ID" ColumnName="STATUS_ID" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="TOPIC_TYPE_ID" ColumnName="TOPIC_TYPE_ID" />
+                <ScalarProperty Name="TOPIC" ColumnName="TOPIC" />
+                <ScalarProperty Name="C_TYPE_ID" ColumnName="C_TYPE_ID" />
+                <ScalarProperty Name="CORRESPONDENCE_NO" ColumnName="CORRESPONDENCE_NO" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CORRESPONDENCE_OUT">
+            <EntityTypeMapping TypeName="CMSModel.CORRESPONDENCE_OUT">
+              <MappingFragment StoreEntitySet="CORRESPONDENCE_OUT">
+                <ScalarProperty Name="IS_DELETED" ColumnName="IS_DELETED" />
+                <ScalarProperty Name="RELATED_CORRESPONDENCE_ID" ColumnName="RELATED_CORRESPONDENCE_ID" />
+                <ScalarProperty Name="NOTES" ColumnName="NOTES" />
+                <ScalarProperty Name="REPLY_TYPE_ID" ColumnName="REPLY_TYPE_ID" />
+                <ScalarProperty Name="COMPLAINT_NAME" ColumnName="COMPLAINT_NAME" />
+                <ScalarProperty Name="COMPLAINT_TYPE_ID" ColumnName="COMPLAINT_TYPE_ID" />
+                <ScalarProperty Name="REPLY_DURATION" ColumnName="REPLY_DURATION" />
+                <ScalarProperty Name="REPLY_DATE" ColumnName="REPLY_DATE" />
+                <ScalarProperty Name="REPLIES" ColumnName="REPLIES" />
+                <ScalarProperty Name="FOLLOWUP_ENTITY_TYPE_ID" ColumnName="FOLLOWUP_ENTITY_TYPE_ID" />
+                <ScalarProperty Name="RECIEPT_DATE" ColumnName="RECIEPT_DATE" />
+                <ScalarProperty Name="RECIEVER_NAME" ColumnName="RECIEVER_NAME" />
+                <ScalarProperty Name="ARCHIVE_OUT_NUMBER_DATE" ColumnName="ARCHIVE_OUT_NUMBER_DATE" />
+                <ScalarProperty Name="ARCHIVE_OUT_NUMBER" ColumnName="ARCHIVE_OUT_NUMBER" />
+                <ScalarProperty Name="NO_OF_ATTACHMENTS" ColumnName="NO_OF_ATTACHMENTS" />
+                <ScalarProperty Name="DOCUMENT_TYPE_ID" ColumnName="DOCUMENT_TYPE_ID" />
+                <ScalarProperty Name="FROM_OFFICE_SENT_NUMBER" ColumnName="FROM_OFFICE_SENT_NUMBER" />
+                <ScalarProperty Name="FROM_OFFICE_SENT_DATE" ColumnName="FROM_OFFICE_SENT_DATE" />
+                <ScalarProperty Name="OFFICE_ORGANIZATION" ColumnName="OFFICE_ORGANIZATION" />
+                <ScalarProperty Name="SENT_TO_ENTITY_NAME" ColumnName="SENT_TO_ENTITY_NAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DOCUMENT_TYPE">
+            <EntityTypeMapping TypeName="CMSModel.DOCUMENT_TYPE">
+              <MappingFragment StoreEntitySet="DOCUMENT_TYPE">
+                <ScalarProperty Name="NAME_AR" ColumnName="NAME_AR" />
+                <ScalarProperty Name="NAME_EN" ColumnName="NAME_EN" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMPLOYEEs">
+            <EntityTypeMapping TypeName="CMSModel.EMPLOYEE">
+              <MappingFragment StoreEntitySet="EMPLOYEE">
+                <ScalarProperty Name="INSURANCE_NUMBER" ColumnName="INSURANCE_NUMBER" />
+                <ScalarProperty Name="DEPARTMENT" ColumnName="DEPARTMENT" />
+                <ScalarProperty Name="DATE_HIRED" ColumnName="DATE_HIRED" />
+                <ScalarProperty Name="NATIONAL_ID" ColumnName="NATIONAL_ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="FILE_NUMBER" ColumnName="FILE_NUMBER" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ENTITY_TYPE">
+            <EntityTypeMapping TypeName="CMSModel.ENTITY_TYPE">
+              <MappingFragment StoreEntitySet="ENTITY_TYPE">
+                <ScalarProperty Name="NAME_AR" ColumnName="NAME_AR" />
+                <ScalarProperty Name="NAME_EN" ColumnName="NAME_EN" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HOMEPAGE_CONTENT">
+            <EntityTypeMapping TypeName="CMSModel.HOMEPAGE_CONTENT">
+              <MappingFragment StoreEntitySet="HOMEPAGE_CONTENT">
+                <ScalarProperty Name="HTML_CONTENT" ColumnName="HTML_CONTENT" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IMPORTANCEs">
+            <EntityTypeMapping TypeName="CMSModel.IMPORTANCE">
+              <MappingFragment StoreEntitySet="IMPORTANCE">
+                <ScalarProperty Name="RANK" ColumnName="RANK" />
+                <ScalarProperty Name="NAME_AR" ColumnName="NAME_AR" />
+                <ScalarProperty Name="NAME_EN" ColumnName="NAME_EN" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REPLY_TYPE">
+            <EntityTypeMapping TypeName="CMSModel.REPLY_TYPE">
+              <MappingFragment StoreEntitySet="REPLY_TYPE">
+                <ScalarProperty Name="NAME_AR" ColumnName="NAME_AR" />
+                <ScalarProperty Name="NAME_EN" ColumnName="NAME_EN" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SHELves">
+            <EntityTypeMapping TypeName="CMSModel.SHELF">
+              <MappingFragment StoreEntitySet="SHELF">
+                <ScalarProperty Name="NAME_AR" ColumnName="NAME_AR" />
+                <ScalarProperty Name="NAME_EN" ColumnName="NAME_EN" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STATUS">
+            <EntityTypeMapping TypeName="CMSModel.STATUS">
+              <MappingFragment StoreEntitySet="STATUS">
+                <ScalarProperty Name="NAME_AR" ColumnName="NAME_AR" />
+                <ScalarProperty Name="NAME_EN" ColumnName="NAME_EN" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TOPIC_TYPE">
+            <EntityTypeMapping TypeName="CMSModel.TOPIC_TYPE">
+              <MappingFragment StoreEntitySet="TOPIC_TYPE">
+                <ScalarProperty Name="NAME_AR" ColumnName="NAME_AR" />
+                <ScalarProperty Name="NAME_EN" ColumnName="NAME_EN" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

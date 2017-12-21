@@ -1,0 +1,61 @@
+﻿@{
+    Layout = "~/Views/_layout.cshtml";
+    @inherits System.Web.Mvc.WebViewPage
+}
+<script src="~/Components/Stats/StatsController.js"></script>
+<section id="aboutproj" class="jumbotron  short well-back">
+    <div class="container">
+        <h3>احصائيات النظام</h3>
+    </div>
+</section>
+
+<section id="services" class="shorter" ng-controller="StatsController">
+    <div class="container" ng-data>
+        <div class="row">
+            <ul class="thumbnails">
+                <li class="col-md-12">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>المكاتبات الصادرة:{{stats[0]}}</h3>
+                            <h2></h2>
+                        </div>
+                    </div>
+                </li>
+                <li class="col-md-12">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>المكاتبات الورادة:{{stats[1]}}</h3>
+                            <h2></h2>
+                        </div>
+                    </div>
+                </li>
+                <li class="col-md-12">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>المكاتبات المتربطة بعناصر:{{stats[4]}}</h3>
+                            <h2></h2>
+                        </div>
+                    </div>
+                </li>
+                <li class="col-md-12">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>عدد الحالات:{{stats[2]}}</h3>
+                            <h2 ></h2>
+                        </div>
+                    </div>
+                </li>
+                <li class="col-md-12">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>درجات الاهمية:{{stats[3]}}</h3>
+                            <h2></h2>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</section>
+

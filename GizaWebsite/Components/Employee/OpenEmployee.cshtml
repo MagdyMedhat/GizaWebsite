@@ -1,0 +1,95 @@
+﻿@{
+    Layout = "~/Views/_layout.cshtml";
+    @inherits System.Web.Mvc.WebViewPage
+}
+
+<script src="~/Components/Employee/EmployeeController.js"></script>
+
+<section id="aboutproj" class="jumbotron  short well-back" >
+    <div class="container">
+        <h3>الموظفين - عرض </h3>
+    </div>
+</section>
+
+<section class="container no-padding" ng-controller="EmployeeController">
+    <input type="hidden" value="open" id="token" />
+
+    <div class="row">
+        <div class="col-xs-12">
+            <form name="update_form" id="update_form">
+                <div class="panel panel-default">
+                    <div class="panel-body form-horizontal ">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="description" class="col-sm-4 control-label">اسم الموظف</label>
+                                <div class="col-sm-8">
+                                    @*<input ng-disabled="true" type="text" class="form-control" id="e_name" name="e_name" ng-model="">*@
+                                    <p>{{model.employee.NAME}}</p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="description" class="col-sm-4 control-label">رقم الملف</label>
+                                <div class="col-sm-8">
+                                    @*<input ng-disabled="true" type="text" class="form-control" id="e_fileNumber" name="e_fileNumber" ng-model="">*@
+                                    <p>{{model.employee.FILE_NUMBER}}</p>
+                                </div>
+                            </div>
+                             <div class="form-group">
+                                <label for="description" class="col-sm-4 control-label">الرقم القومي</label>
+                                <div class="col-sm-8">
+                               <p>{{model.employee.NATIONAL_ID}}</p> 
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="description" class="col-sm-4 control-label">رقم التأمين</label>
+                                <div class="col-sm-8">
+                                @*<input ng-disabled="true" type="text" class="form-control" id="e_insuranceNumber" name="e_insuranceNumber" ng-model="model.employee.INSURANCE_NUMBER" />*@
+                                    <p>{{model.employee.INSURANCE_NUMBER}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="files" class="col-sm-4 control-label">صورة ضوئية</label>
+                                <div class="col-sm-8">
+                                   <ul>
+                                        <li ng-repeat="file in model.fileNames">
+                                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" ng-click="openFile(file.directory)">{{file.fileName}}</button>
+                                        </li>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="myModal" role="dialog">
+                                                <div id="pdf"></div>
+                                            </div>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="description" class="col-sm-4 control-label">تاريخ التعيين</label>
+                                <div class="col-sm-8">
+                                @*<input ng-disabled="true" type="date" class="form-control" id="e_dateHiredr" name="e_dateHiredr" ng-model="model.employee.DATE_HIRED"/>*@
+                                    <p>{{model.dateFixer(model.employee.DATE_HIRED)}}</p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="description" class="col-sm-4 control-label">الإدارة</label>
+                                <div class="col-sm-8">
+                                @*<input ng-disabled="true" type="text" class="form-control" id="e_department" name="e_department" ng-model="model.employee.DEPARTMENT" />*@
+                                    <p>{{model.employee.DEPARTMENT}}</p>
+                                </div>
+                            </div>
+                            
+
+                        </div>
+                    </div>
+            </div> <!-- / panel preview -->
+            </form>
+
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</section>
+
+<style>
+    .ng-disabled {
+        cursor: default;
+    }
+</style>

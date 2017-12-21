@@ -1,0 +1,596 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{454685FA-7FDB-4870-991D-58FDCE89533D}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GizaWebsite</RootNamespace>
+    <AssemblyName>GizaWebsite</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ADDING_ENTITY_TYPE.cs">
+      <DependentUpon>GizaWebsite.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CLOSET.cs">
+      <DependentUpon>GizaWebsite.tt</DependentUpon>
+    </Compile>
+    <Compile Include="COMPLAINT_TYPE.cs">
+      <DependentUpon>GizaWebsite.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CorrespondenceIN\CorrespondenceINController.cs" />
+    <Compile Include="Components\CorrespondenceOUT\CorrespondenceOUTController.cs" />
+    <Compile Include="Components\Employee\EmployeeController.cs" />
+    <Compile Include="Components\Stats\StatsController.cs" />
+    <Compile Include="CORRESPONDENCE_IN.cs">
+      <DependentUpon>GizaWebsite.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CORRESPONDENCE_OUT.cs">
+      <DependentUpon>GizaWebsite.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TYPE.cs">
+      <DependentUpon>GizaWebsite.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DOCUMENT_TYPE.cs">
+      <DependentUpon>GizaWebsite.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EMPLOYEE.cs">
+      <DependentUpon>GizaWebsite.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ENTITY_TYPE.cs">
+      <DependentUpon>GizaWebsite.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GizaWebsite.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GizaWebsite.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HOMEPAGE_CONTENT.cs">
+      <DependentUpon>GizaWebsite.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IMPORTANCE.cs">
+      <DependentUpon>GizaWebsite.tt</DependentUpon>
+    </Compile>
+    <Compile Include="REPLY_TYPE.cs">
+      <DependentUpon>GizaWebsite.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SHELF.cs">
+      <DependentUpon>GizaWebsite.tt</DependentUpon>
+    </Compile>
+    <Compile Include="STATUS.cs">
+      <DependentUpon>GizaWebsite.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TOPIC_TYPE.cs">
+      <DependentUpon>GizaWebsite.tt</DependentUpon>
+    </Compile>
+    <Content Include="Assets\datepicker\bootstrap-datepicker.js" />
+    <Content Include="Assets\datepicker\bootstrap-datetimepicker.min.js" />
+    <Content Include="Assets\datepicker\bootstrap.min.css" />
+    <Content Include="Assets\datepicker\datepicker.min.css" />
+    <Content Include="Assets\datepicker\moment.min.js" />
+    <Content Include="Assets\Images\spinloaders\audio.svg" />
+    <Content Include="Assets\Images\spinloaders\ball-triangle.svg" />
+    <Content Include="Assets\Images\spinloaders\bars.svg" />
+    <Content Include="Assets\Images\spinloaders\circles.svg" />
+    <Content Include="Assets\Images\spinloaders\grid.svg" />
+    <Content Include="Assets\Images\spinloaders\hearts.svg" />
+    <Content Include="Assets\Images\spinloaders\oval.svg" />
+    <Content Include="Assets\Images\spinloaders\puff.svg" />
+    <Content Include="Assets\Images\spinloaders\rings.svg" />
+    <Content Include="Assets\Images\spinloaders\spinning-circles.svg" />
+    <Content Include="Assets\Images\spinloaders\tail-spin.svg" />
+    <Content Include="Assets\Images\spinloaders\three-dots.svg" />
+    <None Include="Components\Common\Error_noaccess.cshtml" />
+    <Compile Include="Components\Common\ComboBoxController.cs" />
+    <Compile Include="Components\Dashboard\DashboardController.cs" />
+    <Compile Include="Components\Login\LoginController.cs" />
+    <Content Include="Assets\PDFObject\pdfobject.js" />
+    <Content Include="Components\Common\app.js" />
+    <Content Include="Assets\AngularJS\fileUpload.js" />
+    <Content Include="Assets\AngularJS\Plugins\ng-file-upload\ng-file-upload-shim.min.js" />
+    <Content Include="Assets\AngularJS\Plugins\ng-file-upload\ng-file-upload.min.js" />
+    <Content Include="Assets\AngularJS\Plugins\ui.bootstrap\ui-bootstrap-tpls-0.12.0.min.js" />
+    <Content Include="Assets\AngularJS\Plugins\wig\ng-wig.css" />
+    <Content Include="Assets\AngularJS\Plugins\wig\ng-wig.js" />
+    <Content Include="Assets\CSS\AdminLTE-rtl.min.css" />
+    <Content Include="Assets\CSS\AdminLTE.min.css" />
+    <Content Include="Assets\CSS\animate.css" />
+    <Content Include="Assets\CSS\bootstrap-rtl.min.css" />
+    <Content Include="Assets\CSS\bootstrap.css" />
+    <Content Include="Assets\CSS\bootstrap.min.css" />
+    <Content Include="Assets\CSS\creative-rtl.css" />
+    <Content Include="Assets\CSS\creative.css" />
+    <Content Include="Assets\CSS\font-awesome.css" />
+    <Content Include="Assets\CSS\font-awesome.min.css" />
+    <Content Include="Assets\CSS\jquery-ui.css" />
+    <Content Include="Assets\CustomJS\creative.js" />
+    <Content Include="Assets\CustomJS\jquery.easing.min.js" />
+    <Content Include="Assets\CustomJS\jquery.fittext.js" />
+    <Content Include="Assets\CustomJS\wow.min.js" />
+    <Content Include="Assets\datatables\dataTables.bootstrap.css" />
+    <Content Include="Assets\datatables\dataTables.bootstrap.js" />
+    <Content Include="Assets\datatables\dataTables.bootstrap.min.js" />
+    <Content Include="Assets\datatables\extensions\AutoFill\css\dataTables.autoFill.css" />
+    <Content Include="Assets\datatables\extensions\AutoFill\css\dataTables.autoFill.min.css" />
+    <Content Include="Assets\datatables\extensions\AutoFill\examples\columns.html" />
+    <Content Include="Assets\datatables\extensions\AutoFill\examples\complete-callback.html" />
+    <Content Include="Assets\datatables\extensions\AutoFill\examples\fill-both.html" />
+    <Content Include="Assets\datatables\extensions\AutoFill\examples\fill-horizontal.html" />
+    <Content Include="Assets\datatables\extensions\AutoFill\examples\index.html" />
+    <Content Include="Assets\datatables\extensions\AutoFill\examples\scrolling.html" />
+    <Content Include="Assets\datatables\extensions\AutoFill\examples\simple.html" />
+    <Content Include="Assets\datatables\extensions\AutoFill\examples\step-callback.html" />
+    <Content Include="Assets\datatables\extensions\AutoFill\images\filler.png" />
+    <Content Include="Assets\datatables\extensions\AutoFill\js\dataTables.autoFill.js" />
+    <Content Include="Assets\datatables\extensions\AutoFill\js\dataTables.autoFill.min.js" />
+    <Content Include="Assets\datatables\extensions\AutoFill\Readme.txt" />
+    <Content Include="Assets\datatables\extensions\ColReorder\css\dataTables.colReorder.css" />
+    <Content Include="Assets\datatables\extensions\ColReorder\css\dataTables.colReorder.min.css" />
+    <Content Include="Assets\datatables\extensions\ColReorder\examples\alt_insert.html" />
+    <Content Include="Assets\datatables\extensions\ColReorder\examples\colvis.html" />
+    <Content Include="Assets\datatables\extensions\ColReorder\examples\col_filter.html" />
+    <Content Include="Assets\datatables\extensions\ColReorder\examples\fixedcolumns.html" />
+    <Content Include="Assets\datatables\extensions\ColReorder\examples\fixedheader.html" />
+    <Content Include="Assets\datatables\extensions\ColReorder\examples\index.html" />
+    <Content Include="Assets\datatables\extensions\ColReorder\examples\jqueryui.html" />
+    <Content Include="Assets\datatables\extensions\ColReorder\examples\new_init.html" />
+    <Content Include="Assets\datatables\extensions\ColReorder\examples\predefined.html" />
+    <Content Include="Assets\datatables\extensions\ColReorder\examples\realtime.html" />
+    <Content Include="Assets\datatables\extensions\ColReorder\examples\reset.html" />
+    <Content Include="Assets\datatables\extensions\ColReorder\examples\scrolling.html" />
+    <Content Include="Assets\datatables\extensions\ColReorder\examples\server_side.html" />
+    <Content Include="Assets\datatables\extensions\ColReorder\examples\simple.html" />
+    <Content Include="Assets\datatables\extensions\ColReorder\examples\state_save.html" />
+    <Content Include="Assets\datatables\extensions\ColReorder\images\insert.png" />
+    <Content Include="Assets\datatables\extensions\ColReorder\js\dataTables.colReorder.js" />
+    <Content Include="Assets\datatables\extensions\ColReorder\js\dataTables.colReorder.min.js" />
+    <Content Include="Assets\datatables\extensions\ColReorder\License.txt" />
+    <Content Include="Assets\datatables\extensions\ColVis\css\dataTables.colVis.css" />
+    <Content Include="Assets\datatables\extensions\ColVis\css\dataTables.colvis.jqueryui.css" />
+    <Content Include="Assets\datatables\extensions\ColVis\css\dataTables.colVis.min.css" />
+    <Content Include="Assets\datatables\extensions\ColVis\examples\button_order.html" />
+    <Content Include="Assets\datatables\extensions\ColVis\examples\exclude_columns.html" />
+    <Content Include="Assets\datatables\extensions\ColVis\examples\group_columns.html" />
+    <Content Include="Assets\datatables\extensions\ColVis\examples\index.html" />
+    <Content Include="Assets\datatables\extensions\ColVis\examples\jqueryui.html" />
+    <Content Include="Assets\datatables\extensions\ColVis\examples\mouseover.html" />
+    <Content Include="Assets\datatables\extensions\ColVis\examples\new_init.html" />
+    <Content Include="Assets\datatables\extensions\ColVis\examples\restore.html" />
+    <Content Include="Assets\datatables\extensions\ColVis\examples\simple.html" />
+    <Content Include="Assets\datatables\extensions\ColVis\examples\text.html" />
+    <Content Include="Assets\datatables\extensions\ColVis\examples\title_callback.html" />
+    <Content Include="Assets\datatables\extensions\ColVis\examples\two_tables.html" />
+    <Content Include="Assets\datatables\extensions\ColVis\examples\two_tables_identical.html" />
+    <Content Include="Assets\datatables\extensions\ColVis\js\dataTables.colVis.js" />
+    <Content Include="Assets\datatables\extensions\ColVis\js\dataTables.colVis.min.js" />
+    <Content Include="Assets\datatables\extensions\ColVis\License.txt" />
+    <Content Include="Assets\datatables\extensions\FixedColumns\css\dataTables.fixedColumns.css" />
+    <Content Include="Assets\datatables\extensions\FixedColumns\css\dataTables.fixedColumns.min.css" />
+    <Content Include="Assets\datatables\extensions\FixedColumns\examples\bootstrap.html" />
+    <Content Include="Assets\datatables\extensions\FixedColumns\examples\colvis.html" />
+    <Content Include="Assets\datatables\extensions\FixedColumns\examples\col_filter.html" />
+    <Content Include="Assets\datatables\extensions\FixedColumns\examples\css_size.html" />
+    <Content Include="Assets\datatables\extensions\FixedColumns\examples\index.html" />
+    <Content Include="Assets\datatables\extensions\FixedColumns\examples\index_column.html" />
+    <Content Include="Assets\datatables\extensions\FixedColumns\examples\left_right_columns.html" />
+    <Content Include="Assets\datatables\extensions\FixedColumns\examples\right_column.html" />
+    <Content Include="Assets\datatables\extensions\FixedColumns\examples\rowspan.html" />
+    <Content Include="Assets\datatables\extensions\FixedColumns\examples\server-side-processing.html" />
+    <Content Include="Assets\datatables\extensions\FixedColumns\examples\simple.html" />
+    <Content Include="Assets\datatables\extensions\FixedColumns\examples\size_fixed.html" />
+    <Content Include="Assets\datatables\extensions\FixedColumns\examples\size_fluid.html" />
+    <Content Include="Assets\datatables\extensions\FixedColumns\examples\two_columns.html" />
+    <Content Include="Assets\datatables\extensions\FixedColumns\js\dataTables.fixedColumns.js" />
+    <Content Include="Assets\datatables\extensions\FixedColumns\js\dataTables.fixedColumns.min.js" />
+    <Content Include="Assets\datatables\extensions\FixedColumns\License.txt" />
+    <Content Include="Assets\datatables\extensions\FixedHeader\css\dataTables.fixedHeader.css" />
+    <Content Include="Assets\datatables\extensions\FixedHeader\css\dataTables.fixedHeader.min.css" />
+    <Content Include="Assets\datatables\extensions\FixedHeader\examples\header_footer.html" />
+    <Content Include="Assets\datatables\extensions\FixedHeader\examples\index.html" />
+    <Content Include="Assets\datatables\extensions\FixedHeader\examples\simple.html" />
+    <Content Include="Assets\datatables\extensions\FixedHeader\examples\top_left_right.html" />
+    <Content Include="Assets\datatables\extensions\FixedHeader\examples\two_tables.html" />
+    <Content Include="Assets\datatables\extensions\FixedHeader\examples\zIndexes.html" />
+    <Content Include="Assets\datatables\extensions\FixedHeader\js\dataTables.fixedHeader.js" />
+    <Content Include="Assets\datatables\extensions\FixedHeader\js\dataTables.fixedHeader.min.js" />
+    <Content Include="Assets\datatables\extensions\FixedHeader\Readme.txt" />
+    <Content Include="Assets\datatables\extensions\KeyTable\css\dataTables.keyTable.css" />
+    <Content Include="Assets\datatables\extensions\KeyTable\css\dataTables.keyTable.min.css" />
+    <Content Include="Assets\datatables\extensions\KeyTable\examples\events.html" />
+    <Content Include="Assets\datatables\extensions\KeyTable\examples\html.html" />
+    <Content Include="Assets\datatables\extensions\KeyTable\examples\index.html" />
+    <Content Include="Assets\datatables\extensions\KeyTable\examples\scrolling.html" />
+    <Content Include="Assets\datatables\extensions\KeyTable\examples\simple.html" />
+    <Content Include="Assets\datatables\extensions\KeyTable\js\dataTables.keyTable.js" />
+    <Content Include="Assets\datatables\extensions\KeyTable\js\dataTables.keyTable.min.js" />
+    <Content Include="Assets\datatables\extensions\KeyTable\Readme.txt" />
+    <Content Include="Assets\datatables\extensions\Responsive\css\dataTables.responsive.css" />
+    <Content Include="Assets\datatables\extensions\Responsive\examples\child-rows\column-control.html" />
+    <Content Include="Assets\datatables\extensions\Responsive\examples\child-rows\custom-renderer.html" />
+    <Content Include="Assets\datatables\extensions\Responsive\examples\child-rows\disable-child-rows.html" />
+    <Content Include="Assets\datatables\extensions\Responsive\examples\child-rows\index.html" />
+    <Content Include="Assets\datatables\extensions\Responsive\examples\child-rows\right-column.html" />
+    <Content Include="Assets\datatables\extensions\Responsive\examples\child-rows\whole-row-control.html" />
+    <Content Include="Assets\datatables\extensions\Responsive\examples\display-control\auto.html" />
+    <Content Include="Assets\datatables\extensions\Responsive\examples\display-control\classes.html" />
+    <Content Include="Assets\datatables\extensions\Responsive\examples\display-control\complexHeader.html" />
+    <Content Include="Assets\datatables\extensions\Responsive\examples\display-control\fixedHeader.html" />
+    <Content Include="Assets\datatables\extensions\Responsive\examples\display-control\index.html" />
+    <Content Include="Assets\datatables\extensions\Responsive\examples\display-control\init-classes.html" />
+    <Content Include="Assets\datatables\extensions\Responsive\examples\index.html" />
+    <Content Include="Assets\datatables\extensions\Responsive\examples\initialisation\ajax.html" />
+    <Content Include="Assets\datatables\extensions\Responsive\examples\initialisation\className.html" />
+    <Content Include="Assets\datatables\extensions\Responsive\examples\initialisation\default.html" />
+    <Content Include="Assets\datatables\extensions\Responsive\examples\initialisation\index.html" />
+    <Content Include="Assets\datatables\extensions\Responsive\examples\initialisation\new.html" />
+    <Content Include="Assets\datatables\extensions\Responsive\examples\initialisation\option.html" />
+    <Content Include="Assets\datatables\extensions\Responsive\examples\styling\bootstrap.html" />
+    <Content Include="Assets\datatables\extensions\Responsive\examples\styling\compact.html" />
+    <Content Include="Assets\datatables\extensions\Responsive\examples\styling\foundation.html" />
+    <Content Include="Assets\datatables\extensions\Responsive\examples\styling\index.html" />
+    <Content Include="Assets\datatables\extensions\Responsive\examples\styling\scrolling.html" />
+    <Content Include="Assets\datatables\extensions\Responsive\js\dataTables.responsive.js" />
+    <Content Include="Assets\datatables\extensions\Responsive\js\dataTables.responsive.min.js" />
+    <Content Include="Assets\datatables\extensions\Responsive\License.txt" />
+    <Content Include="Assets\datatables\extensions\Scroller\css\dataTables.scroller.css" />
+    <Content Include="Assets\datatables\extensions\Scroller\css\dataTables.scroller.min.css" />
+    <Content Include="Assets\datatables\extensions\Scroller\examples\api_scrolling.html" />
+    <Content Include="Assets\datatables\extensions\Scroller\examples\data\2500.txt" />
+    <Content Include="Assets\datatables\extensions\Scroller\examples\index.html" />
+    <Content Include="Assets\datatables\extensions\Scroller\examples\large_js_source.html" />
+    <Content Include="Assets\datatables\extensions\Scroller\examples\server-side_processing.html" />
+    <Content Include="Assets\datatables\extensions\Scroller\examples\simple.html" />
+    <Content Include="Assets\datatables\extensions\Scroller\examples\state_saving.html" />
+    <Content Include="Assets\datatables\extensions\Scroller\images\loading-background.png" />
+    <Content Include="Assets\datatables\extensions\Scroller\js\dataTables.scroller.js" />
+    <Content Include="Assets\datatables\extensions\Scroller\js\dataTables.scroller.min.js" />
+    <Content Include="Assets\datatables\extensions\Scroller\Readme.txt" />
+    <Content Include="Assets\datatables\extensions\TableTools\css\dataTables.tableTools.css" />
+    <Content Include="Assets\datatables\extensions\TableTools\css\dataTables.tableTools.min.css" />
+    <Content Include="Assets\datatables\extensions\TableTools\examples\ajax.html" />
+    <Content Include="Assets\datatables\extensions\TableTools\examples\alter_buttons.html" />
+    <Content Include="Assets\datatables\extensions\TableTools\examples\bootstrap.html" />
+    <Content Include="Assets\datatables\extensions\TableTools\examples\button_text.html" />
+    <Content Include="Assets\datatables\extensions\TableTools\examples\collection.html" />
+    <Content Include="Assets\datatables\extensions\TableTools\examples\defaults.html" />
+    <Content Include="Assets\datatables\extensions\TableTools\examples\index.html" />
+    <Content Include="Assets\datatables\extensions\TableTools\examples\jqueryui.html" />
+    <Content Include="Assets\datatables\extensions\TableTools\examples\multiple_tables.html" />
+    <Content Include="Assets\datatables\extensions\TableTools\examples\multi_instance.html" />
+    <Content Include="Assets\datatables\extensions\TableTools\examples\new_init.html" />
+    <Content Include="Assets\datatables\extensions\TableTools\examples\pdf_message.html" />
+    <Content Include="Assets\datatables\extensions\TableTools\examples\plug-in.html" />
+    <Content Include="Assets\datatables\extensions\TableTools\examples\select_column.html" />
+    <Content Include="Assets\datatables\extensions\TableTools\examples\select_multi.html" />
+    <Content Include="Assets\datatables\extensions\TableTools\examples\select_os.html" />
+    <Content Include="Assets\datatables\extensions\TableTools\examples\select_single.html" />
+    <Content Include="Assets\datatables\extensions\TableTools\examples\simple.html" />
+    <Content Include="Assets\datatables\extensions\TableTools\examples\swf_path.html" />
+    <Content Include="Assets\datatables\extensions\TableTools\images\collection.png" />
+    <Content Include="Assets\datatables\extensions\TableTools\images\collection_hover.png" />
+    <Content Include="Assets\datatables\extensions\TableTools\images\copy.png" />
+    <Content Include="Assets\datatables\extensions\TableTools\images\copy_hover.png" />
+    <Content Include="Assets\datatables\extensions\TableTools\images\csv.png" />
+    <Content Include="Assets\datatables\extensions\TableTools\images\csv_hover.png" />
+    <Content Include="Assets\datatables\extensions\TableTools\images\pdf.png" />
+    <Content Include="Assets\datatables\extensions\TableTools\images\pdf_hover.png" />
+    <Content Include="Assets\datatables\extensions\TableTools\images\print.png" />
+    <Content Include="Assets\datatables\extensions\TableTools\images\print_hover.png" />
+    <Content Include="Assets\datatables\extensions\TableTools\images\xls.png" />
+    <Content Include="Assets\datatables\extensions\TableTools\images\xls_hover.png" />
+    <Content Include="Assets\datatables\extensions\TableTools\js\dataTables.tableTools.js" />
+    <Content Include="Assets\datatables\extensions\TableTools\js\dataTables.tableTools.min.js" />
+    <Content Include="Assets\datatables\extensions\TableTools\swf\copy_csv_xls.swf" />
+    <Content Include="Assets\datatables\extensions\TableTools\swf\copy_csv_xls_pdf.swf" />
+    <Content Include="Assets\datatables\images\sort_asc.png" />
+    <Content Include="Assets\datatables\images\sort_asc_disabled.png" />
+    <Content Include="Assets\datatables\images\sort_both.png" />
+    <Content Include="Assets\datatables\images\sort_desc.png" />
+    <Content Include="Assets\datatables\images\sort_desc_disabled.png" />
+    <Content Include="Assets\datatables\jquery.dataTables.css" />
+    <Content Include="Assets\datatables\jquery.dataTables.js" />
+    <Content Include="Assets\datatables\jquery.dataTables.min.css" />
+    <Content Include="Assets\datatables\jquery.dataTables.min.js" />
+    <Content Include="Assets\datatables\jquery.dataTables_themeroller.css" />
+    <Content Include="Assets\fonts\DroidKufi\droid-arabic-kufi.css" />
+    <Content Include="Assets\fonts\DroidKufi\DroidArabicKufiBold.ttf" />
+    <Content Include="Assets\fonts\DroidKufi\DroidArabicKufiRegular.ttf" />
+    <Content Include="Assets\Images\ArcstuffLogo.png" />
+    <Content Include="Assets\Images\glyphicons-halflings-white.png" />
+    <Content Include="Assets\Images\logo.jpg" />
+    <Content Include="Assets\Images\logo.png" />
+    <Content Include="Assets\Images\madentylogo.png" />
+    <Content Include="Assets\Images\orange.jpg" />
+    <Content Include="Assets\Images\wellback.png" />
+    <Content Include="Assets\Tags\ng-tags-input.bootstrap.css" />
+    <Content Include="Assets\Tags\ng-tags-input.css" />
+    <Content Include="Assets\Tags\ng-tags-input.js" />
+    <Content Include="Components\Common\ComboBoxHandler.js" />
+    <Content Include="Components\CorrespondenceIN\CorrespondenceINController.js" />
+    <Content Include="Components\CorrespondenceOUT\CorrespondenceOUTController.js" />
+    <Content Include="Components\Dashboard\HomePageController.js" />
+    <Content Include="Components\Dashboard\DashboardController.js" />
+    <Content Include="Components\Common\LayoutController.js" />
+    <Compile Include="Components\HomePage\HomeController.cs" />
+    <Compile Include="GizaWebsite.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GizaWebsite.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GizaWebsite.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GizaWebsite.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EntityDeploy Include="GizaWebsite.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>GizaWebsite.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Components\Employee\EmployeeController.js" />
+    <Content Include="Components\Stats\StatsController.js" />
+    <Content Include="DB Migrations\00_seeder.sql" />
+    <Content Include="DB Migrations\05_column_add_corrNo.sql" />
+    <Content Include="DB Migrations\06_column_add_relatedcorrType.sql" />
+    <Content Include="DB Migrations\04_add_closet_shelf_tables.sql" />
+    <Content Include="GizaWebsite.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GizaWebsite.edmx</DependentUpon>
+      <LastGenOutput>GizaWebsite.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="GizaWebsite.edmx.diagram">
+      <DependentUpon>GizaWebsite.edmx</DependentUpon>
+    </Content>
+    <Content Include="GizaWebsite.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GizaWebsite.edmx</DependentUpon>
+      <LastGenOutput>GizaWebsite.cs</LastGenOutput>
+    </Content>
+    <Content Include="Components\Employee\Employee.cshtml" />
+    <Content Include="Components\Employee\OpenEmployee.cshtml" />
+    <Content Include="Components\Employee\CreateEmployee.cshtml" />
+    <Content Include="Components\Employee\UpdateEmployee.cshtml" />
+    <Content Include="Components\CorrespondenceIN\Correspondence.cshtml" />
+    <Content Include="Components\CorrespondenceIN\CreateCorrespondence.cshtml" />
+    <Content Include="Components\CorrespondenceIN\OpenCorrespondence.cshtml" />
+    <Content Include="Components\CorrespondenceIN\UpdateCorrespondence.cshtml" />
+    <Content Include="Components\CorrespondenceOUT\CreateCorrespondence.cshtml" />
+    <Content Include="Components\CorrespondenceOUT\OpenCorrespondence.cshtml" />
+    <Content Include="Components\CorrespondenceOUT\UpdateCorrespondence.cshtml" />
+    <Content Include="Components\CorrespondenceOUT\Correspondence.cshtml" />
+    <Content Include="Components\Stats\Stats.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Config\FilterConfig.cs" />
+    <Compile Include="Config\RouteConfig.cs" />
+    <Compile Include="Config\WebApiConfig.cs" />
+    <Content Include="Assets\AngularJS\angular.min.js" />
+    <Content Include="Assets\Bootstrap\css\bootstrap-theme.css" />
+    <Content Include="Assets\Bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="Assets\Bootstrap\css\bootstrap.css" />
+    <Content Include="Assets\Bootstrap\css\bootstrap.min.css" />
+    <Content Include="Assets\Bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Assets\Bootstrap\js\bootstrap.js" />
+    <Content Include="Assets\Bootstrap\js\bootstrap.min.js" />
+    <Content Include="Assets\Bootstrap\js\npm.js" />
+    <Content Include="Assets\jQuery\jquery-1.11.3.min.js" />
+    <Content Include="Components\HomePage\HomeController.js" />
+    <Content Include="Components\Login\LoginController.js" />
+    <Content Include="DB Migrations\01_initial_schema.sql" />
+    <Content Include="DB Migrations\02_table_add_employee.sql" />
+    <Content Include="DB Migrations\03_column_add_deleted.sql" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Assets\Moment\moment-with-locales.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Uploads\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\_layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="Assets\Bootstrap\css\bootstrap-theme.min.css.map" />
+    <Content Include="Assets\Bootstrap\css\bootstrap.css.map" />
+    <Content Include="Assets\Bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Assets\Bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Assets\Bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Assets\Bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Assets\Bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Components\HomePage\Home.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="Assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="Assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="Assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Assets\fonts\FontAwesome.otf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Components\Login\Login.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Components\Dashboard\Dashboard.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Components\Dashboard\Lookups.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\datatables\extensions\ColReorder\Readme.md" />
+    <Content Include="Assets\datatables\extensions\ColVis\Readme.md" />
+    <Content Include="Assets\datatables\extensions\FixedColumns\Readme.md" />
+    <Content Include="Assets\datatables\extensions\Responsive\css\dataTables.responsive.scss" />
+    <Content Include="Assets\datatables\extensions\Responsive\Readme.md" />
+    <Content Include="Assets\datatables\extensions\Scroller\examples\data\ssp.php" />
+    <Content Include="Assets\datatables\extensions\TableTools\images\psd\collection.psd" />
+    <Content Include="Assets\datatables\extensions\TableTools\images\psd\copy document.psd" />
+    <Content Include="Assets\datatables\extensions\TableTools\images\psd\file_types.psd" />
+    <Content Include="Assets\datatables\extensions\TableTools\images\psd\printer.psd" />
+    <Content Include="Assets\datatables\extensions\TableTools\Readme.md" />
+    <Content Include="Assets\datatables\images\Thumbs.db" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Components\Dashboard\HomePage.cshtml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3977</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:19470/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
